@@ -1,0 +1,7 @@
+---
+const { title, src, format, width, height } = Astro.props;
+---
+
+<video autoplay muted class="" width={width} height={height}>
+    <source src={src} type={format} />
+</video>

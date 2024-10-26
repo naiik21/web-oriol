@@ -1,0 +1,24 @@
+---
+import Layout from '../layouts/Layout.astro';
+import SectionContainer from "../components/SectionContainer.astro";
+import Vertical4Bloc from "../components/Vertical4Bloc.astro"
+import Horizontal2Bloc from "../components/Horitzonatl2Bloc.astro"
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<SectionContainer id="experiencia" class="pb-6">
+			<h2 class="text-4xl font-semiboldb mb-6 flex gap-x-2 items-center">
+				VFX & IA
+			</h2>
+			<p class="mb-4">
+				Nuestros vídeos van más allá de la simple edición convencional. No solo fusionamos cuidadosamente tomas, música y colores para crear una experiencia visual cautivadora, sino que también elevamos la narrativa mediante la integración de efectos visuales (VFX) de vanguardia. Además, destacamos en la vanguardia tecnológica al incorporar inteligencia artificial (IA) para potenciar la creatividad y la innovación en cada producción. Con un enfoque integral, nuestra dedicación a la excelencia se refleja en la fusión armoniosa de elementos estéticos y tecnológicos, ofreciendo vídeos que no solo deslumbran sino que también trascienden las expectativas convencionales.
+			</p>
+
+			<Vertical4Bloc class="mb-4"></Vertical4Bloc>
+			<Horizontal2Bloc class="mb-4"></Horizontal2Bloc>
+			<Vertical4Bloc class="mb-4"></Vertical4Bloc>
+
+		</SectionContainer>
+	</main>
+</Layout>
