@@ -16,6 +16,9 @@ import Header from '../components/Header.astro';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Yatra+One&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<Header/>
@@ -35,8 +38,9 @@ import Header from '../components/Header.astro';
 		);
 	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
+		font-family: 'Inter', sans-serif;
+		background: #1A191D;
+		color: #FFFFFF;
 	}
 	code {
 		font-family:

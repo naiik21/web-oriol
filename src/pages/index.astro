@@ -3,22 +3,57 @@ import Layout from '../layouts/Layout.astro';
 import SectionContainer from "../components/SectionContainer.astro";
 import Vertical4Bloc from "../components/Vertical4Bloc.astro"
 import Horizontal2Bloc from "../components/Horitzonatl2Bloc.astro"
+import VideoText from '../components/VideoText.astro';
+import {Marquee} from "../components/MagicUI/Marquee"
+import Words from '../components/React/Words';
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
-		<SectionContainer id="experiencia" class="pb-6">
-			<h2 class="text-4xl font-semiboldb mb-6 flex gap-x-2 items-center">
+		<SectionContainer id="experiencia" class="py-8 2xl:pt-56 xl:pt-20 md:pt-56">
+			<h2 class="text-6xl font-semibold mb-6 flex gap-x-2 items-center w">
 				VFX & IA
 			</h2>
-			<p class="mb-4">
-				Nuestros vídeos van más allá de la simple edición convencional. No solo fusionamos cuidadosamente tomas, música y colores para crear una experiencia visual cautivadora, sino que también elevamos la narrativa mediante la integración de efectos visuales (VFX) de vanguardia. Además, destacamos en la vanguardia tecnológica al incorporar inteligencia artificial (IA) para potenciar la creatividad y la innovación en cada producción. Con un enfoque integral, nuestra dedicación a la excelencia se refleja en la fusión armoniosa de elementos estéticos y tecnológicos, ofreciendo vídeos que no solo deslumbran sino que también trascienden las expectativas convencionales.
+			<p class="mb-4 text-xl">
+				Nuestros vídeos van más allá de la simple edición convencional. No solo fusionamos cuidadosamente tomas, música y colores para crear una experiencia visual cautivadora, sino que también elevamos la narrativa mediante la integración de efectos visuales (VFX) de vanguardia. Además, destacamos en la vanguardia tecnológica al incorporar inteligencia artificial (IA) para potenciar la creatividad y la innovación en cada producción.
 			</p>
 
-			<Vertical4Bloc class="mb-4"></Vertical4Bloc>
+			<Vertical4Bloc class="mt-16 mb-4"></Vertical4Bloc>
 			<Horizontal2Bloc class="mb-4"></Horizontal2Bloc>
 			<Vertical4Bloc class="mb-4"></Vertical4Bloc>
 
 		</SectionContainer>
+
+		<SectionContainer id="experiencia" class="pb-6">
+			<Marquee pauseOnHover={true} reverse={true} >
+				<div><img src="./skere-logo.png" alt="skere"></div>
+				<div><img src="./skere-logo.png" alt="skere"></div>
+				<div><img src="./skere-logo.png" alt="skere"></div>
+			</Marquee>
+			<Marquee pauseOnHover={true} reverse={false}>
+				<div><img src="./skere-logo.png" alt="skere"></div>
+				<div><img src="./skere-logo.png" alt="skere"></div>
+				<div><img src="./skere-logo.png" alt="skere"></div>
+			</Marquee>
+		</SectionContainer>
+
+
+		<Words client:load></Words>
+
+
+		<SectionContainer id="experiencia" class="pb-6">
+			<VideoText
+				title="Skere"
+				content="Un ejemplo a destacar de la maestría que tiene WAHM es este proyecto para La Daurada Club, donde se demuestra la capacidad para convertir la simple documentación de eventos en una experiencia agresiva y cautivadora. La cinematografía de La Daurada no solo documentó la música pulsante y las luces hipnóticas, sino que también transmitió la autenticidad y la intensidad de la experiencia nocturna. Vamos más allá de la estética convencional. Para nosotros, cada vídeo tiene que ser una obra de arte que capte la conexión entre la música, la luz y la audiencia, invitando al espectador a sumergirse en la energía inquebrantable de la noche. Redefinimos la grabación de eventos nocturnos, ofreciendo una experiencia visual que trasciende las expectativas y establece un nuevo estándar en la cinematografía nocturna." 
+				src="https://player.vimeo.com/video/245868810?h=4fa30ae97f&autoplay=1&background=1"
+				reverse: false
+			/>
+			<VideoText
+				title="Skere"
+				content="Un ejemplo a destacar de la maestría que tiene WAHM es este proyecto para La Daurada Club, donde se demuestra la capacidad para convertir la simple documentación de eventos en una experiencia agresiva y cautivadora. La cinematografía de La Daurada no solo documentó la música pulsante y las luces hipnóticas, sino que también transmitió la autenticidad y la intensidad de la experiencia nocturna. Vamos más allá de la estética convencional. Para nosotros, cada vídeo tiene que ser una obra de arte que capte la conexión entre la música, la luz y la audiencia, invitando al espectador a sumergirse en la energía inquebrantable de la noche. Redefinimos la grabación de eventos nocturnos, ofreciendo una experiencia visual que trasciende las expectativas y establece un nuevo estándar en la cinematografía nocturna." 
+				src="https://player.vimeo.com/video/245868810?h=4fa30ae97f&autoplay=1&background=1"
+				reverse= true
+			/>
+		</SectionContainer> 
 	</main>
 </Layout>
