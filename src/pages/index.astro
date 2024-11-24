@@ -8,6 +8,15 @@ import VideoText from '../components/VideoText.astro';
 import {Marquee} from "../components/MagicUI/Marquee"
 import {Globe} from "../components/MagicUI/Globe"
 import Words from '../components/React/Words';
+import Words2 from '../components/React/Words2';
+import Words3 from '../components/React/Words3.jsx';
+
+const phrases = [
+  "Primera frase",
+  "Segunda frase",
+  "Tercera frase",
+  "Cuarta frase",
+];
 ---
 
 <Layout title="Welcome to Astro.">
@@ -26,21 +35,19 @@ import Words from '../components/React/Words';
 
 		</SectionContainer>
 
-		<SectionContainer id="experiencia" class="pb-6">
-			<Marquee pauseOnHover={true} reverse={true} >
-				<div><img src="./skere-logo.png" alt="skere"></div>
-				<div><img src="./skere-logo.png" alt="skere"></div>
-				<div><img src="./skere-logo.png" alt="skere"></div>
-			</Marquee>
-			<Marquee pauseOnHover={true} reverse={false}>
-				<div><img src="./skere-logo.png" alt="skere"></div>
-				<div><img src="./skere-logo.png" alt="skere"></div>
-				<div><img src="./skere-logo.png" alt="skere"></div>
-			</Marquee>
-		</SectionContainer>
+		<Marquee pauseOnHover={true} reverse={true} >
+			<div><img src="./skere-logo.png" alt="skere"></div>
+			<div><img src="./skere-logo.png" alt="skere"></div>
+			<div><img src="./skere-logo.png" alt="skere"></div>
+		</Marquee>
+		<Marquee pauseOnHover={true} reverse={false}>
+			<div><img src="./skere-logo.png" alt="skere"></div>
+			<div><img src="./skere-logo.png" alt="skere"></div>
+			<div><img src="./skere-logo.png" alt="skere"></div>
+		</Marquee>
 
 
-		<Words client:load></Words>
+		 <Words3 phrases={phrases} />
 
 		
 		<ScrollEffect

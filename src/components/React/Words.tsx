@@ -25,21 +25,6 @@ const cardVariants: Variants = {
 
 const hue = (h: number) => `hsl(${h}, 100%, 50%)`
 
-function Card({ word, hueA, hueB }: Props) {
-  return (
-    <motion.div
-      className='card-container'
-      initial='offscreen'
-      whileInView='onscreen'
-      viewport={{ once: true, amount: 0.8 }}>
-      <div className='splash' />
-      <motion.div className='card' variants={cardVariants}>
-        {word}
-      </motion.div>
-    </motion.div>
-  )
-}
-
 const words: [string, number, number][] = [
   ['Skere', 340, 10],
   ['Mucho Skere', 20, 40],
@@ -51,7 +36,21 @@ const words: [string, number, number][] = [
   ['Y elcuerpo lo sabe', 290, 320]
 ]
 
-export default function App() {
+function Card({ word, hueA, hueB }: Props) {
+  return (
+    <motion.div
+      className='card-container'
+      initial='offscreen'
+      whileInView='onscreen'
+      viewport={{ once: true, amount: 0.8 }}>
+      <motion.div className='card' variants={cardVariants}>
+        {word}
+      </motion.div>
+    </motion.div>
+  )
+}
+
+export default function Words() {
   return words.map(([word, hueA, hueB]) => (
     <Card word={word} hueA={hueA} hueB={hueB} key={word} />
   ))
