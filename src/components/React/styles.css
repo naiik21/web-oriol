@@ -20,3 +20,13 @@
   padding-top: 20px;
   margin-bottom: -120px;
 }
+
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
