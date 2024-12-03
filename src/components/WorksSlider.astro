@@ -1,0 +1,38 @@
+<style>
+  .horizontal-scroll {
+    display: flex;
+    width: 400vw; /* 4 secciones (100vw cada una) */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    scroll-behavior: smooth; /* Suaviza el scroll */
+  }
+
+  .section {
+    flex: 1 0 100%; /* Cada sección ocupa el 100% del ancho */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: linear-gradient(45deg, #6b8e23, #4b0082);
+    color: white;
+  }
+</style>
+
+<div class='horizontal-scroll'>
+  <div class='section'>Sección 1</div>
+  <div class='section'>Sección 2</div>
+  <div class='section'>Sección 3</div>
+  <div class='section'>Sección 4</div>
+</div>
+
+<script>
+  // script.js
+  window.addEventListener('wheel', (event) => {
+    const horizontalScroll = document.querySelector('.horizontal-scroll')
+    if (event.deltaY !== 0) {
+      // Impide el scroll vertical
+      event.preventDefault()
+      horizontalScroll.scrollLeft += event.deltaY
+    }
+  })
+</script>

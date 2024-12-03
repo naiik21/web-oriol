@@ -24,7 +24,7 @@ export const ScrollPhrase: React.FC<ScrollPhraseProps> = ({
   return (
     <div
       ref={elementRef}
-      className='absolute transform transition-all duration-700 ease-in-out'
+      className=' transform transition-all duration-700 ease-in-out'
       style={{
         top: `${initialPosition.top}vh`,
         left: `${initialPosition.left}vw`,

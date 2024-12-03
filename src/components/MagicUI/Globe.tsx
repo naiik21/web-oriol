@@ -68,54 +68,59 @@ export function Globe() {
   return (
     <div
       style={{
-        width: '100%',
-        maxWidth: 600,
-        aspectRatio: 1,
-        margin: 'auto',
-        position: 'relative'
+        backgroundColor: '#1a191d'
       }}>
-      <canvas
-        ref={canvasRef}
-        onPointerDown={(e) => {
-          pointerInteracting.current =
-            e.clientX - pointerInteractionMovement.current
-          canvasRef.current.style.cursor = 'grabbing'
-        }}
-        onPointerUp={() => {
-          pointerInteracting.current = null
-          canvasRef.current.style.cursor = 'grab'
-        }}
-        onPointerOut={() => {
-          pointerInteracting.current = null
-          canvasRef.current.style.cursor = 'grab'
-        }}
-        onMouseMove={(e) => {
-          if (pointerInteracting.current !== null) {
-            const delta = e.clientX - pointerInteracting.current
-            pointerInteractionMovement.current = delta
-            api.start({
-              r: delta / 200
-            })
-          }
-        }}
-        onTouchMove={(e) => {
-          if (pointerInteracting.current !== null && e.touches[0]) {
-            const delta = e.touches[0].clientX - pointerInteracting.current
-            pointerInteractionMovement.current = delta
-            api.start({
-              r: delta / 100
-            })
-          }
-        }}
+      <div
         style={{
           width: '100%',
-          height: '100%',
-          cursor: 'grab',
-          contain: 'layout paint size',
-          opacity: 0,
-          transition: 'opacity 1s ease'
-        }}
-      />
+          maxWidth: 600,
+          aspectRatio: 1,
+          margin: 'auto',
+          position: 'relative'
+        }}>
+        <canvas
+          ref={canvasRef}
+          onPointerDown={(e) => {
+            pointerInteracting.current =
+              e.clientX - pointerInteractionMovement.current
+            canvasRef.current.style.cursor = 'grabbing'
+          }}
+          onPointerUp={() => {
+            pointerInteracting.current = null
+            canvasRef.current.style.cursor = 'grab'
+          }}
+          onPointerOut={() => {
+            pointerInteracting.current = null
+            canvasRef.current.style.cursor = 'grab'
+          }}
+          onMouseMove={(e) => {
+            if (pointerInteracting.current !== null) {
+              const delta = e.clientX - pointerInteracting.current
+              pointerInteractionMovement.current = delta
+              api.start({
+                r: delta / 200
+              })
+            }
+          }}
+          onTouchMove={(e) => {
+            if (pointerInteracting.current !== null && e.touches[0]) {
+              const delta = e.touches[0].clientX - pointerInteracting.current
+              pointerInteractionMovement.current = delta
+              api.start({
+                r: delta / 100
+              })
+            }
+          }}
+          style={{
+            width: '100%',
+            height: '100%',
+            cursor: 'grab',
+            contain: 'layout paint size',
+            opacity: 0,
+            transition: 'opacity 1s ease'
+          }}
+        />
+      </div>
     </div>
   )
 }

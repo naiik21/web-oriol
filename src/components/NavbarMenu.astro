@@ -1,125 +1,129 @@
- <style>
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgb(221 221 221 / 60%);
-      backdrop-filter: blur(20px);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      z-index: 1000;
-    }
+---
+const currentPath = Astro.url.pathname
+---
 
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgb(221 221 221 / 60%);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
 
-    .navbar.none {
-      display: none;
-    }
+  .navbar.none {
+    display: none;
+  }
 
-     .navbar.display {
-      display:block;
-    }
+  .navbar.display {
+    display: block;
+  }
 
-    .navbar ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 60px;
-    }
+  .navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
 
-    .navbar li {
-      position: relative;
-      margin: 0 15px;
-      cursor: pointer;
-    }
+  .navbar li {
+    position: relative;
+    margin: 0 15px;
+    cursor: pointer;
+  }
 
-    .navbar a {
-      text-decoration: none;
-      color: #4d4d4d;
-      font-size: 16px;
-      font-weight: bold;
-      padding: 5px 10px;
-      transition: color 0.3s ease;
-    }
+  .navbar a {
+    text-decoration: none;
+    color: #4d4d4d;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: color 0.3s ease;
+  }
 
-    .navbar a:hover {
-      color: #000000;
-    }
+  .navbar a:hover {
+    color: #000000;
+  }
 
-    #dropdownHover{
-      display: none;
-    }
+  #dropdownHover {
+    display: none;
+  }
 
-    .navbar img:hover ~ #dropdownHover{
-      display: block;
-    }
+  .navbar img:hover ~ #dropdownHover {
+    display: block;
+  }
 
-    #dropdownHover:hover{
-      display: block;
-    }
+  #dropdownHover:hover {
+    display: block;
+  }
+</style>
 
-  </style>
-
-<div class="navbar display z-30 fixed w-full" id="navbar">
-    <ul>
-      <li>
-        <a href="#">Inicio</a>
-      </li>
-      <li>
-        <a href="../pages/aboutMe.astro">Sobre Mi</a>
-      </li>
-      <li>
-        <a href="#">Trabajos</a>
-      </li>
-      <li>
-        <a href="#">Contacto</a>
-      </li>
-    </ul>
+<div class='navbar display z-30 fixed w-full' id='navbar'>
+  <ul>
+    <li>
+      <a href='/'>Inicio</a>
+    </li>
+    <li>
+      <a href='/aboutMe'>Sobre Mi</a>
+    </li>
+    <li>
+      <a href='/works'>Trabajos</a>
+    </li>
+    <li>
+      <a href='/contact'>Contacto</a>
+    </li>
+  </ul>
 </div>
 
-<div class="navbar none z-30 fixed w-full" id="navbar-scroll">
-    <ul>
-        <li>
-            <img src="./o-logo.png" alt="Logo" width="50px" height="50px">
-            <div id="dropdownHover" class="z-10  rounded-b-lg absolute" style="left: 50%; transform: translate(-50%, 8%);  background: rgb(207 207 207 / 90%);
-      backdrop-filter: blur(20px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
-                  <ul class="w-max">
-                    <li>
-                      <a href="#">Inicio</a>
-                    </li>
-                    <li>
-                      <a href="../pages/aboutMe.astro">Sobre Mi</a>
-                    </li>
-                    <li>
-                      <a href="#">Trabajos</a>
-                    </li>
-                    <li>
-                      <a href="#">Contacto</a>
-                    </li>
-                  </ul>
-              </div>
-        </li>
-    </ul>
-
+<div class='navbar none z-30 fixed w-full' id='navbar-scroll'>
+  <ul>
+    <li>
+      <img src='./o-logo.png' alt='Logo' width='50px' height='50px' />
+      <div
+        id='dropdownHover'
+        class='z-10 rounded-b-lg absolute'
+        style='left: 50%; transform: translate(-50%, 8%);  background: rgb(207 207 207 / 90%);
+      backdrop-filter: blur(20px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);'>
+        <ul class='w-max'>
+          <li>
+            <a href='/'>Inicio</a>
+          </li>
+          <li>
+            <a href='/aboutMe'>Sobre Mi</a>
+          </li>
+          <li>
+            <a href='/works'>Trabajos</a>
+          </li>
+          <li>
+            <a href='/contact'>Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
 </div>
-  
-  <script>
-    const navbar = document.getElementById('navbar');
-    const navbarScroll = document.getElementById('navbar-scroll');
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('none');
-        navbar.classList.remove('display');
-        navbarScroll.classList.add('display');
-        navbarScroll.classList.remove('none');
-      } else {
-        navbar.classList.add('display');
-        navbar.classList.remove('none');
-        navbarScroll.classList.add('none');
-        navbarScroll.classList.remove('display');
-      }
-    });
-  </script>
+<script>
+  const navbar = document.getElementById('navbar')
+  const navbarScroll = document.getElementById('navbar-scroll')
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('none')
+      navbar.classList.remove('display')
+      navbarScroll.classList.add('display')
+      navbarScroll.classList.remove('none')
+    } else {
+      navbar.classList.add('display')
+      navbar.classList.remove('none')
+      navbarScroll.classList.add('none')
+      navbarScroll.classList.remove('display')
+    }
+  })
+</script>

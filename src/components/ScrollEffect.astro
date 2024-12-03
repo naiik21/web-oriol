@@ -1,49 +1,50 @@
 ---
-const { text} = Astro.props;
+const { text } = Astro.props
 ---
 
 <style>
-    .texto-paso-a-negro {
-        max-width: 100%;
-    }
+  .texto-paso-a-negro {
+    max-width: 100%;
+  }
 
-    .texto-paso-a-negro {
-        color: #fff;
-        mix-blend-mode: difference;
-        max-width: 108.3rem;
-        font-size: 10.0rem;
-        line-height: 104%;
-        letter-spacing: -0.06em;
-        position: sticky;
-        height: 100vh;
-        z-index: 1;
-        top: 0;
-        left: 0;
-        padding-top: 9rem;
-    }
+  .texto-paso-a-negro {
+    color: #ffffff;
+    mix-blend-mode: difference;
+    max-width: 108.3rem;
+    font-size: 10rem;
+    line-height: 104%;
+    letter-spacing: -0.06em;
+    position: sticky;
+    height: 100vh;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    padding-top: 9rem;
+  }
 
-    .animated {
-        animation-delay: 0.2s;
-    }
+  .animated {
+    animation-delay: 0.2s;
+  }
 
-    .texto-paso-a-blanco {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-    }
+  .texto-paso-a-blanco {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 
-    .div-background-negro {
-        height: 100vh;
-        background: #1A191D;
-        z-index: 0;
-        width: 99vw;
-    }
+  .div-background-negro {
+    height: 100vh;
+    background: #ffffff;
+    z-index: 0;
+    width: 99vw;
+  }
 </style>
 
-
-<div class="bg-white">
-    <div class="texto-paso-a-negro " style="visibility: visible; animation-name: fadeIn;">
-        <div class="texto-paso-a-blanco">{text}</div>
-    </div>
-    <div class="div-background-negro"></div>
+<div class='bg-[#1a191d]'>
+  <div
+    class='texto-paso-a-negro'
+    style='visibility: visible; animation-name: fadeIn;'>
+    <div class='texto-paso-a-blanco'>{text}</div>
+  </div>
+  <div class='div-background-negro'></div>
 </div>
