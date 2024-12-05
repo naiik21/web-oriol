@@ -7,7 +7,6 @@ import ScrollEffect from '../components/ScrollEffect.astro'
 import VideoText from '../components/VideoText.astro'
 import { Marquee } from '../components/MagicUI/Marquee'
 import { Globe } from '../components/MagicUI/Globe'
-import { ScrollContainer } from '../components/React/ScrollContainer.tsx'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -40,10 +39,6 @@ import { ScrollContainer } from '../components/React/ScrollContainer.tsx'
         </div>
       </div>
     </SectionContainer>
-
-    <!-- <div>
-      <ScrollContainer />
-    </div> -->
 
     <Marquee pauseOnHover={true} reverse={true}>
       <div class='flex items-center'>

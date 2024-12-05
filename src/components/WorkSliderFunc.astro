@@ -1,0 +1,118 @@
+<style>
+  h4 {
+    z-index: 1;
+  }
+  .scroll-carrousel {
+    width: 100%;
+    height: 100%;
+  }
+
+  .scroll-container {
+    list-style-type: none;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    overflow-x: scroll; /* Permite scroll horizontal */
+    scroll-behavior: smooth;
+    white-space: nowrap; /* Impide el salto de línea */
+  }
+
+  li {
+    flex: none;
+    width: 33vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-family: Arial, sans-serif;
+  }
+
+  .video-subcat {
+    display: none;
+    max-width: 500px;
+    max-height: 500px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  h4 {
+    z-index: 2;
+  }
+
+  h4:hover ~ .video-subcat {
+    display: block;
+  }
+</style>
+
+<div class='scroll-carrousel'>
+  <ul class='scroll-container'>
+    <li></li>
+    <li>
+      <h4>Corporativos y marcas</h4>
+      <div class='video-subcat'>
+        <video width='100%' height='100%' muted playsinline autoplay loop>
+          <source src='/video-header.mp4' />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </li>
+    <li>
+      <h4>Restaurantes</h4>
+      <div class='video-subcat'>
+        <video width='100%' height='100%' muted playsinline autoplay loop>
+          <source src='/instagram-video.mp4' />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </li>
+    <li>
+      <h4>Bodas</h4>
+      <div class='video-subcat'>
+        <video width='100%' height='100%' muted playsinline autoplay loop>
+          <source src='/video-header.mp4' />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </li>
+    <li>
+      <h4>Eventos</h4>
+      <div class='video-subcat'>
+        <video width='100%' height='100%' muted playsinline autoplay loop>
+          <source src='/video-header.mp4' />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </li>
+    <li>
+      <h4>Eventos deportivos</h4>
+      <div class='video-subcat'>
+        <video width='100%' height='100%' muted playsinline autoplay loop>
+          <source src='/video-header.mp4' />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </li>
+    <li>
+      <h4>Moda</h4>
+      <div class='video-subcat'>
+        <video width='100%' height='100%' muted playsinline autoplay loop>
+          <source src='/video-header.mp4' />
+          Your browser does not support the video element.
+        </video>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<script>
+  const scrollContainer = document.querySelector('.scroll-container')
+
+  scrollContainer.addEventListener('wheel', (event) => {
+    event.preventDefault() // Evita el scroll vertical por defecto
+    scrollContainer.scrollLeft += event.deltaY // Desplaza horizontalmente
+  })
+</script>
