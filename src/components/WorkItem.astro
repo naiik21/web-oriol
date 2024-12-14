@@ -7,18 +7,53 @@ const { title, source } = Astro.props
 ---
 
 <style>
+  h4:hover {
+    filter: drop-shadow(2px 4px 6px #0d0d0d);
+  }
+
   h4:hover ~ #video-subcat {
     display: block;
   }
+
+  .hovered-other {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+  }
 </style>
 
-<h4 class='z-[1]'>{title}</h4>
+<h4 class='text-[#D9D9D9] z-[1]'>{title}</h4>
 <div
   id='video-subcat'
   style='transform: translate(-50%, -50%);'
-  class='hidden max-w-[31.25rem] max-h-[31.25rem] m-auto absolute top-1/2 left-1/2'>
+  class='hidden max-w-5xl max-h-5xl m-auto absolute top-1/2 left-1/2'>
   <video width='100%' height='100%' muted playsinline autoplay loop>
     <source src={source} />
     Your browser does not support the video element.
   </video>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Selecciona todos los elementos h4
+    const h4Elements = document.querySelectorAll('h4')
+
+    h4Elements.forEach((h4) => {
+      // Agrega el evento hover (mouseenter y mouseleave)
+      h4.addEventListener('mouseenter', () => {
+        h4Elements.forEach((otherH4) => {
+          if (otherH4 !== h4) {
+            otherH4.classList.add('hovered-other')
+          }
+        })
+      })
+
+      h4.addEventListener('mouseleave', () => {
+        h4Elements.forEach((otherH4) => {
+          if (otherH4 !== h4) {
+            otherH4.classList.remove('hovered-other')
+          }
+        })
+      })
+    })
+  })
+</script>

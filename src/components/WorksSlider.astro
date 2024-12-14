@@ -4,35 +4,49 @@ import WorkItem from './WorkItem.astro'
 const WORKSTYPES = [
   {
     title: '',
-    source: ''
+    source: '',
+    style: 'w-[18vw]'
   },
   {
-    title: 'sada',
-    source: '/video-header.mp4'
+    title: 'Corporativos y Marcas',
+    source: '/portadas-trabajos/corporativo-portada.mp4'
   },
   {
-    title: 'fdsfs',
-    source: '/video-header.mp4'
+    title: 'Restaurantes',
+    source: '/portadas-trabajos/restaurantes-portada.mp4'
   },
   {
-    title: 'saghfhda',
-    source: '/video-header.mp4'
+    title: 'Bodas',
+    source: '/portadas-trabajos/bodas-portada.mp4'
   },
   {
-    title: '21313',
-    source: '/video-header.mp4'
+    title: 'Eventos',
+    source: '/portadas-trabajos/eventos-portada.mp4'
   },
   {
-    title: 'sajklhjkda',
-    source: '/video-header.mp4'
+    title: 'Eventos deportivos',
+    source: '/portadas-trabajos/deportes-portada.mp4'
   },
   {
-    title: '----',
-    source: '/video-header.mp4'
+    title: 'Moda',
+    source: '/portadas-trabajos/moda-portada.mp4'
+  },
+  {
+    title: 'Alimentacion',
+    source: '/portadas-trabajos/alimentacion-portada.mp4'
+  },
+  {
+    title: 'Educacion',
+    source: '/portadas-trabajos/eduacion-portada.mp4'
+  },
+  {
+    title: 'Cortometraje',
+    source: '/portadas-trabajos/cortometraje-portada.mp4'
   },
   {
     title: '',
-    source: ''
+    source: '',
+    style: 'w-[19vw]'
   }
 ]
 ---
@@ -41,10 +55,11 @@ const WORKSTYPES = [
   <ul
     id='scroll-container'
     style='scroll-behavior: smooth;'
-    class='list-none flex w-full h-full overflow-x-scroll whitespace-nowrap'>
+    class='list-none flex w-full h-full overflow-x-hidden whitespace-nowrap gap-20'>
     {
       WORKSTYPES.map((work) => (
-        <li class='w-[33vw] h-screen flex flex-none items-center justify-center text-4xl'>
+        <li
+          class={`${work.style} h-screen flex flex-none items-center justify-center text-8xl`}>
           <WorkItem {...work} />
         </li>
       ))
@@ -54,9 +69,10 @@ const WORKSTYPES = [
 
 <script>
   const scrollContainer = document.querySelector('#scroll-container')
+  const scrollSpeed = 3 // Ajusta este valor para aumentar o reducir la velocidad
 
   scrollContainer.addEventListener('wheel', (event) => {
     event.preventDefault() // Evita el scroll vertical por defecto
-    scrollContainer.scrollLeft += event.deltaY // Desplaza horizontalmente
+    scrollContainer.scrollLeft += event.deltaY * scrollSpeed // Ajusta la velocidad
   })
 </script>

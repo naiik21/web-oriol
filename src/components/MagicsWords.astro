@@ -1,0 +1,108 @@
+---
+const WORDS = [
+  {
+    text: 'Emociones reales',
+    size: 'text-[70px]',
+    postion: '',
+    class: 'word-left'
+  },
+  {
+    text: 'Capturando cada emoción y detalle',
+    size: 'text-[30px]',
+    postion: '',
+    class: 'word-right'
+  },
+  {
+    text: 'Momentos que merecen ser recordados',
+    size: 'text-[50px]',
+    postion: '',
+    class: 'word-left'
+  },
+  {
+    text: 'Visuales que conectan con tu audiencia',
+    size: 'text-[22px]',
+    postion: '',
+    class: 'word-right'
+  },
+  {
+    text: 'Narrativas que dejan huella',
+    size: 'text-[30px]',
+    postion: '',
+    class: 'word-left'
+  },
+  {
+    text: 'Narrativas que dejan huella',
+    size: 'text-[16px]',
+    postion: '',
+    class: 'word-right'
+  },
+  { text: 'one', size: 'text-[250px]', postion: '', class: 'word-center' }
+]
+---
+
+<style>
+  .word {
+    transform: scale(0.5); /* Comienza pequeño */
+    opacity: 1; /* Comienza visible */
+    transition:
+      transform 0.2s ease-out,
+      opacity 0.2s ease-out;
+    width: fit-content;
+  }
+</style>
+
+<div class='flex flex-col items-center overflow-hidden'>
+  {
+    WORDS.map((word) => (
+      <div class={`word ${word.class} ${word.size} my-40`}>
+        <p>{word.text}</p>
+      </div>
+    ))
+  }
+</div>
+
+<script>
+  const words = document.querySelectorAll('.word')
+  const windowHeight = window.innerHeight
+
+  window.addEventListener('scroll', () => {
+    words.forEach((word) => {
+      const rect = word.getBoundingClientRect()
+
+      // Verificar si el elemento está visible en el viewport
+      if (rect.top < windowHeight && rect.bottom > 0) {
+        const offset = Math.abs(rect.top - windowHeight) // Distancia del centro del viewport
+        const scaleFactor = Math.min(10, 1 + offset / 600)
+        const opacityFactor = Math.max(0, 1 - offset / (windowHeight / 0.5))
+
+        // Aplicar escala y opacidad al elemento principal
+        word.style.transform = `scale(${scaleFactor})`
+        word.style.opacity = opacityFactor
+
+        if (word.classList.contains('word-left')) {
+          // Aplicar rotación y desplazamiento al <p> dentro de word
+          const paragraph = word.querySelector('p')
+          if (paragraph) {
+            const rotationFactor = (offset / 50) % 360 // Rota proporcional al offset
+            const translateFactor = Math.min(200, offset / 1) // Moverse lateralmente (limitar a 200px)
+            paragraph.style.transform = `rotate(-${rotationFactor}deg) translateX(-${translateFactor}px)`
+          }
+        } else if (word.classList.contains('word-right')) {
+          // Aplicar rotación y desplazamiento al <p> dentro de word
+          const paragraph = word.querySelector('p')
+          if (paragraph) {
+            const rotationFactor = (offset / 50) % 360 // Rota proporcional al offset
+            const translateFactor = Math.min(200, offset / 1) // Moverse lateralmente (limitar a 200px)
+            paragraph.style.transform = `rotate(${rotationFactor}deg) translateX(${translateFactor}px)`
+          }
+        } else if (word.classList.contains('word-center')) {
+          const scaleFactor = 1 + offset / 200
+          const opacityFactor = Math.max(0, 1 - offset / (windowHeight / 0))
+          // Aplicar escala y opacidad al elemento principal
+          word.style.transform = `scale(${scaleFactor})`
+          word.style.opacity = opacityFactor
+        }
+      }
+    })
+  })
+</script>

@@ -7,7 +7,7 @@ const currentPath = Astro.url.pathname
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgb(221 221 221 / 60%);
+    background: #a6a6a696;
     backdrop-filter: blur(20px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname
 
   .navbar a {
     text-decoration: none;
-    color: #4d4d4d;
+    color: #262626;
     font-size: 16px;
     font-weight: bold;
     padding: 5px 10px;
@@ -48,7 +48,7 @@ const currentPath = Astro.url.pathname
   }
 
   .navbar a:hover {
-    color: #000000;
+    color: #0d0d0d;
   }
 
   #dropdownHover {
@@ -64,7 +64,7 @@ const currentPath = Astro.url.pathname
   }
 </style>
 
-<div class='navbar display z-30 fixed w-full' id='navbar'>
+<div class='w-full mx-auto xl:w-[1300px] navbar display z-30 fixed' id='navbar'>
   <ul>
     <li>
       <a href='/'>Inicio</a>
@@ -81,14 +81,14 @@ const currentPath = Astro.url.pathname
   </ul>
 </div>
 
-<div class='navbar none z-30 fixed w-full' id='navbar-scroll'>
+<div class='navbar none z-30 fixed w-full xl:w-[1300px]' id='navbar-scroll'>
   <ul>
     <li>
       <img src='./o-logo.png' alt='Logo' width='50px' height='50px' />
       <div
         id='dropdownHover'
         class='z-10 rounded-b-lg absolute'
-        style='left: 50%; transform: translate(-50%, 8%);  background: rgb(207 207 207 / 90%);
+        style='left: 50%; transform: translate(-50%, 8%);  background: #a6a6a696;
       backdrop-filter: blur(20px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);'>
         <ul class='w-max'>
           <li>

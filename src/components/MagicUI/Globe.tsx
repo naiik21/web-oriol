@@ -68,7 +68,7 @@ export function Globe() {
   return (
     <div
       style={{
-        backgroundColor: '#1a191d'
+        backgroundColor: '#0d0d0d'
       }}>
       <div
         style={{

@@ -1,0 +1,89 @@
+---
+import { Marquee } from '../components/MagicUI/Marquee'
+
+const src1 = [
+  './logos-trabajos/anthony-cianci-music-logo.png',
+  './logos-trabajos/bambu-logo.png',
+  './logos-trabajos/beout-logo.png',
+  './logos-trabajos/dance-latino-logo.png',
+  './logos-trabajos/door-logo.png',
+  './logos-trabajos/fluxo-logo.png',
+  './logos-trabajos/full-reggaeton-logo.PNG',
+  './logos-trabajos/lapikkara-logo.png',
+  './logos-trabajos/hoom-logo.png',
+  './logos-trabajos/otros-aires-logo.png',
+  './logos-trabajos/sage-logo.png',
+  './logos-trabajos/macarella-logo.png',
+  './logos-trabajos/oktoberfest-logo.png',
+  './logos-trabajos/tropical-salou-logo.png',
+  './logos-trabajos/underground-logo.png'
+]
+
+const src2 = [
+  './logos-trabajos/argyle-logo.png',
+  './logos-trabajos/instronic-logo.png',
+  './logos-trabajos/itap-logo.png',
+  './logos-trabajos/iul-logo.png',
+  './logos-trabajos/actua-studio-logo.png',
+  './logos-trabajos/amar-logo.png',
+  './logos-trabajos/bear-logo.png',
+  './logos-trabajos/bless-mess-logo.png',
+  './logos-trabajos/matito-and-co-logo.png',
+  './logos-trabajos/nbabs-logo.png',
+  './logos-trabajos/robbie-rommers-logo.png',
+  './logos-trabajos/sidecar-logo.png',
+  './logos-trabajos/sowo-logo.png',
+  './logos-trabajos/st-roca-loga.png',
+  './logos-trabajos/willy-logo.jpg',
+  './logos-trabajos/youtoo-logo.png'
+]
+
+const src3 = [
+  './logos-trabajos/can-xammar-logo.png',
+  './logos-trabajos/cbd-hospitalet-logo.png',
+  './logos-trabajos/club-marxa-nordica-logo.png',
+  './logos-trabajos/crosszion-cbd-logo.png',
+  './logos-trabajos/energy-feelings-logo.png',
+  './logos-trabajos/escola-montserrat-logo.png',
+  './logos-trabajos/frm-logo.png',
+  './logos-trabajos/do-entertainment-logo.png',
+  './logos-trabajos/el-camino-canina-logo.png',
+  './logos-trabajos/fundacion-ibiza-logo.png',
+  './logos-trabajos/high-society-logo.png',
+  './logos-trabajos/ifp-atresmedia-logo.png',
+  './logos-trabajos/las-siesta-logo.jpeg',
+  './logos-trabajos/little-jack-horner-logo.png',
+  './logos-trabajos/solovida-logo.png',
+  './logos-trabajos/xamarxada-logo.png'
+]
+---
+
+<Marquee pauseOnHover={true} reverse={true} className='pt-20'>
+  {
+    src1.map((src) => (
+      <div class='flex items-center'>
+        <img src={src} width='200' height='200' />
+      </div>
+    ))
+  }
+</Marquee>
+
+<Marquee pauseOnHover={true} reverse={false}>
+  {
+    src2.map((src) => (
+      <div class='flex items-center'>
+        <img src={src} width='200' height='200' />
+      </div>
+    ))
+  }
+</Marquee>
+
+<Marquee pauseOnHover={true} reverse={true} className='pb-20'>
+  {
+    src3.map((src) => (
+      <div class='flex items-center'>
+        <img src={src} width='200' height='200' />
+      </div>
+    ))
+  }
+</Marquee>

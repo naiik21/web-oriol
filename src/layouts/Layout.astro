@@ -6,6 +6,7 @@ interface Props {
 const { title } = Astro.props
 import Header from '../components/Header.astro'
 import HeaderHome from '../components/HeaderHome.astro'
+import Footer from '../components/Footer.astro'
 
 const { pathname } = Astro.url
 ---
@@ -29,6 +30,7 @@ const { pathname } = Astro.url
   <body>
     {pathname === '/' ? <HeaderHome /> : <Header />}
     <slot />
+    {pathname === '/works' ? null : <Footer />}
   </body>
 </html>
 <style is:global>
@@ -44,9 +46,9 @@ const { pathname } = Astro.url
     );
   }
   html {
-    font-family: 'Inter', sans-serif;
-    background: #ffffff;
-    color: #1a191d;
+    font-family: A, sans-serif;
+    background: #d9d9d9;
+    color: #0d0d0d;
   }
   code {
     font-family:
