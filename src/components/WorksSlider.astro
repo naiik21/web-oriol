@@ -1,52 +1,64 @@
 ---
 import WorkItem from './WorkItem.astro'
+const currentPath = Astro.url.pathname
 
 const WORKSTYPES = [
   {
     title: '',
     source: '',
-    style: 'w-[18vw]'
+    style: 'w-[18vw]',
+    src: ''
   },
   {
     title: 'Corporativos y Marcas',
-    source: '/portadas-trabajos/corporativo-portada.mp4'
+    source: '/portadas-trabajos/corporativo-portada.mp4',
+    src: '/corporativos'
   },
   {
     title: 'Restaurantes',
-    source: '/portadas-trabajos/restaurantes-portada.mp4'
+    source: '/portadas-trabajos/restaurantes-portada.mp4',
+    src: '/restaurantes'
   },
   {
     title: 'Bodas',
-    source: '/portadas-trabajos/bodas-portada.mp4'
+    source: '/portadas-trabajos/bodas-portada.mp4',
+    src: '/bodas'
   },
   {
     title: 'Eventos',
-    source: '/portadas-trabajos/eventos-portada.mp4'
+    source: '/portadas-trabajos/eventos-portada.mp4',
+    src: '/eventos'
   },
   {
     title: 'Eventos deportivos',
-    source: '/portadas-trabajos/deportes-portada.mp4'
+    source: '/portadas-trabajos/deportes-portada.mp4',
+    src: '/deportes'
   },
   {
     title: 'Moda',
-    source: '/portadas-trabajos/moda-portada.mp4'
+    source: '/portadas-trabajos/moda-portada.mp4',
+    src: '/moda'
   },
   {
     title: 'Alimentacion',
-    source: '/portadas-trabajos/alimentacion-portada.mp4'
+    source: '/portadas-trabajos/alimentacion-portada.mp4',
+    src: '/alimentacion'
   },
   {
     title: 'Educacion',
-    source: '/portadas-trabajos/eduacion-portada.mp4'
+    source: '/portadas-trabajos/eduacion-portada.mp4',
+    src: '/educacion'
   },
   {
     title: 'Cortometraje',
-    source: '/portadas-trabajos/cortometraje-portada.mp4'
+    source: '/portadas-trabajos/cortometraje-portada.mp4',
+    src: '/cortometraje'
   },
   {
     title: '',
     source: '',
-    style: 'w-[19vw]'
+    style: 'w-[19vw]',
+    src: ''
   }
 ]
 ---
@@ -69,7 +81,7 @@ const WORKSTYPES = [
 
 <script>
   const scrollContainer = document.querySelector('#scroll-container')
-  const scrollSpeed = 3 // Ajusta este valor para aumentar o reducir la velocidad
+  const scrollSpeed = 3.5 // Ajusta este valor para aumentar o reducir la velocidad
 
   scrollContainer.addEventListener('wheel', (event) => {
     event.preventDefault() // Evita el scroll vertical por defecto

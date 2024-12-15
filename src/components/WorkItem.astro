@@ -2,8 +2,9 @@
 interface Props {
   title: string
   source: string
+  src: string
 }
-const { title, source } = Astro.props
+const { title, source, src } = Astro.props
 ---
 
 <style>
@@ -11,7 +12,7 @@ const { title, source } = Astro.props
     filter: drop-shadow(2px 4px 6px #0d0d0d);
   }
 
-  h4:hover ~ #video-subcat {
+  a:hover ~ #video-subcat {
     display: block;
   }
 
@@ -21,7 +22,8 @@ const { title, source } = Astro.props
   }
 </style>
 
-<h4 class='text-[#D9D9D9] z-[1]'>{title}</h4>
+<a href=`${src}` class='z-[1]'><h4 class='text-[#D9D9D9]'>{title}</h4></a>
+
 <div
   id='video-subcat'
   style='transform: translate(-50%, -50%);'

@@ -3,40 +3,34 @@ const WORDS = [
   {
     text: 'Emociones reales',
     size: 'text-[70px]',
-    postion: '',
     class: 'word-left'
   },
   {
     text: 'Capturando cada emoción y detalle',
     size: 'text-[30px]',
-    postion: '',
     class: 'word-right'
   },
   {
     text: 'Momentos que merecen ser recordados',
     size: 'text-[50px]',
-    postion: '',
     class: 'word-left'
   },
   {
     text: 'Visuales que conectan con tu audiencia',
     size: 'text-[22px]',
-    postion: '',
     class: 'word-right'
   },
   {
     text: 'Narrativas que dejan huella',
     size: 'text-[30px]',
-    postion: '',
     class: 'word-left'
   },
   {
     text: 'Narrativas que dejan huella',
     size: 'text-[16px]',
-    postion: '',
     class: 'word-right'
   },
-  { text: 'one', size: 'text-[250px]', postion: '', class: 'word-center' }
+  { text: 'ote', size: 'text-[250px]', class: 'word-center' }
 ]
 ---
 
@@ -96,7 +90,7 @@ const WORDS = [
             paragraph.style.transform = `rotate(${rotationFactor}deg) translateX(${translateFactor}px)`
           }
         } else if (word.classList.contains('word-center')) {
-          const scaleFactor = 1 + offset / 200
+          const scaleFactor = 1 + offset / 150
           const opacityFactor = Math.max(0, 1 - offset / (windowHeight / 0))
           // Aplicar escala y opacidad al elemento principal
           word.style.transform = `scale(${scaleFactor})`

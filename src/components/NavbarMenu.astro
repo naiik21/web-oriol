@@ -7,7 +7,8 @@ const currentPath = Astro.url.pathname
     position: fixed;
     top: 0;
     width: 100%;
-    background: #a6a6a696;
+    background: #0d0d0d96;
+    /* background: #a6a6a696; */
     backdrop-filter: blur(20px);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -40,7 +41,8 @@ const currentPath = Astro.url.pathname
 
   .navbar a {
     text-decoration: none;
-    color: #262626;
+    color: #a6a6a6;
+    /* color: #262626; */
     font-size: 16px;
     font-weight: bold;
     padding: 5px 10px;
@@ -48,7 +50,8 @@ const currentPath = Astro.url.pathname
   }
 
   .navbar a:hover {
-    color: #0d0d0d;
+    color: #d9d9d9;
+    /* color: #0d0d0d; */
   }
 
   #dropdownHover {
@@ -84,27 +87,19 @@ const currentPath = Astro.url.pathname
 <div class='navbar none z-30 fixed w-full xl:w-[1300px]' id='navbar-scroll'>
   <ul>
     <li>
+      <a href='/'>Inicio</a>
+    </li>
+    <li>
+      <a href='/aboutMe'>Sobre Mi</a>
+    </li>
+    <li>
       <img src='./o-logo.png' alt='Logo' width='50px' height='50px' />
-      <div
-        id='dropdownHover'
-        class='z-10 rounded-b-lg absolute'
-        style='left: 50%; transform: translate(-50%, 8%);  background: #a6a6a696;
-      backdrop-filter: blur(20px); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);'>
-        <ul class='w-max'>
-          <li>
-            <a href='/'>Inicio</a>
-          </li>
-          <li>
-            <a href='/aboutMe'>Sobre Mi</a>
-          </li>
-          <li>
-            <a href='/works'>Trabajos</a>
-          </li>
-          <li>
-            <a href='/contact'>Contacto</a>
-          </li>
-        </ul>
-      </div>
+    </li>
+    <li>
+      <a href='/works'>Trabajos</a>
+    </li>
+    <li>
+      <a href='/contact'>Contacto</a>
     </li>
   </ul>
 </div>
