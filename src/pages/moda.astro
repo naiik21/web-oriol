@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Moda'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='Estilo, Innovación y Tendencia en Cada Toma'
+        text='El mundo de la moda requiere vídeos que hablen por sí solos. Mis producciones capturan el estilo y la identidad de cada colección y marca.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text='Mis vídeos para moda destacan el diseño, la textura y la esencia de cada colección. Trabajando en sintonía con la marca, creo contenido visual que conecta con el público y potencia la imagen de cada producto'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='Buscas destacar tu marca de moda? Hablemos sobre cómo crear contenido visual que impacte y fidelice.'
+  />
 </Layout>

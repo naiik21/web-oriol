@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Bodas'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='Creando Recuerdos Eternos'
+        text=' Una boda es un momento único e irrepetible. Mis vídeos capturan la emoción, los detalles y el amor que llenan ese día tan especial.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text='Cada boda tiene su propia historia, y mi objetivo es narrarla de forma auténtica y emocional. Desde los votos hasta la primera danza, cada momento queda inmortalizado en un recuerdo visual que podrás revivir siempre.'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='¿Quieres un recuerdo eterno de tu boda? Hablemos sobre cómo puedo ayudarte a capturar cada momento especial.'
+  />
 </Layout>

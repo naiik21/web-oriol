@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Restaurantes'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='El Sabor de tu Marca, en Video'
+        text=' Un buen plato merece una presentación que haga justicia a su sabor. Mis vídeos para restaurantes capturan la atmósfera, el arte culinario y la experiencia gastronómica que ofreces.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text='Con cada vídeo, destaco la identidad única de tu restaurante, desde la calidad de los ingredientes hasta la calidez del servicio. Cada detalle importa para crear una experiencia visual que atraiga y fidelice a tus clientes.'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='¿Quieres atraer más clientes a tu restaurante? Descubre cómo puedo ayudarte a reflejar la esencia de tu cocina.'
+  />
 </Layout>

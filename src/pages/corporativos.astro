@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Corporativos y marcas'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='Impulsando Marcas con Historias Visuales'
+        text='Las marcas necesitan destacar en un entorno competitivo. A través de vídeos estratégicos y auténticos, ayudo a empresas a conectar profundamente con su audiencia.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text='En los vídeos corporativos, muestro la identidad de la empresa, sus valores y el impacto que tiene en su sector. Cada proyecto está diseñado para comunicar la esencia de la marca de una forma cautivadora y profesional.'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='¿Quieres que tu marca destaque? Hablemos sobre cómo puedo ayudar a transmitir la identidad de tu empresa.'
+  />
 </Layout>

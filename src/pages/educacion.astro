@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Educacion'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='Capturando el Espíritu Educativo'
+        text='Las escuelas son lugares llenos de momentos que merecen ser recordados. Desde clases hasta eventos especiales, cada momento cuenta en la vida escolar.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text='Mis vídeos para escuelas capturan la esencia de la vida estudiantil y académica. Documentamos el ambiente de aprendizaje, la colaboración entre estudiantes y profesores, y los eventos que reflejan los valores de cada institución.'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='¿Quieres mostrar la esencia de tu institución?  Hablemos sobre cómo capturar esos momentos importantes para compartirlos con tu comunidad.'
+  />
 </Layout>

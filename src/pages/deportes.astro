@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Eventos deportivos'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='Capturando la Acción y la Emoción del Deporte'
+        text='Los eventos deportivos están llenos de intensidad y momentos únicos. Capturo cada instante de emoción, desde la acción en el campo hasta la reacción del público.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text=' Mis vídeos reflejan la energía y el espíritu de cada evento deportivo. Documentar la acción en vivo y los momentos clave permite que los espectadores revivan la emoción una y otra vez.'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='¿Organizas un evento deportivo? Hablemos sobre cómo capturar cada detalle en video.'
+  />
 </Layout>

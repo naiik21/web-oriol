@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/LayoutWorks.astro'
 import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -9,5 +13,23 @@ import Banner from '../components/Works/Banner.astro'
     title='Eventos'
     videoMobile=''
   />
-  <main></main>
+  <main>
+    <SectionContainer class='pb-6'>
+      <General1
+        title='Capturando Momentos Únicos en Cada Evento'
+        text='Ya sea una fiesta vibrante o un evento privado, cada momento especial merece ser inmortalizado. Me encargo de capturar la atmósfera y la energía de cada celebración.'
+        video=''
+      />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General2
+        text='Mis vídeos para eventos capturan el espíritu de cada ocasión, desde la energía de una fiesta hasta los momentos íntimos de una reunión privada. Trabajo para reflejar la esencia del evento de forma natural y auténtica.'
+        video=''
+      />
+    </SectionContainer>
+  </main>
+  <FooterWorks
+    text='¿Quieres un recuerdo único de tu próximo evento? Contáctame para capturar cada momento especial.'
+  />
 </Layout>
