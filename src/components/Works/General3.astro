@@ -1,0 +1,27 @@
+---
+interface Props {
+  video1: string
+  video2: string
+  video3: string
+}
+const { video1, video2, video3 } = Astro.props
+---
+
+<div class='flex flex-col justify-center gap-8 md:flex-row'>
+  <iframe
+    class='w-full aspect-square'
+    src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+    allow='autoplay'></iframe>
+
+  <div class='w-full flex flex-row gap-8 md:flex-col'>
+    <iframe
+      class='w-full aspect-[2/1]'
+      src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+      allow='autoplay'></iframe>
+
+    <iframe
+      class='w-full aspect-[2/1]'
+      src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+      allow='autoplay'></iframe>
+  </div>
+</div>
