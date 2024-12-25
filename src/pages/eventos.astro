@@ -5,6 +5,7 @@ import FooterWorks from '../components/FooterWorks.astro'
 import SectionContainer from '../components/SectionContainer.astro'
 import General1 from '../components/Works/General1.astro'
 import General2 from '../components/Works/General2.astro'
+import Eventos6 from '../components/Works/Eventos6.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -27,6 +28,12 @@ import General2 from '../components/Works/General2.astro'
         text='Mis vídeos para eventos capturan el espíritu de cada ocasión, desde la energía de una fiesta hasta los momentos íntimos de una reunión privada. Trabajo para reflejar la esencia del evento de forma natural y auténtica.'
         video=''
       />
+    </SectionContainer>
+
+    <SectionContainer
+      class='pb-6 flex flex-col gap-8 justify-between md:flex-row'>
+      <Eventos6 video1='' video2='' video3='' video4='' video5='' />
+      <Eventos6 video1='' video2='' video3='' video4='' video5='' />
     </SectionContainer>
   </main>
   <FooterWorks

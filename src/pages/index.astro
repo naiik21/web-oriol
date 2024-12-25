@@ -1,12 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import SectionContainer from '../components/SectionContainer.astro'
-import Vertical4Bloc from '../components/Vertical4Bloc.astro'
-import Horizontal2Bloc from '../components/Horitzonatl2Bloc.astro'
 import ScrollEffect from '../components/ScrollEffect.astro'
-import VideoText from '../components/VideoText.astro'
 import MarqueeContainer from '../components/MarqueeContainer.astro'
-import MagicsWords from '../components/MagicsWords.astro'
 import { Globe } from '../components/MagicUI/Globe'
 import BigWordsScroll from '../components/React/BigWordsScroll'
 ---
@@ -24,16 +20,16 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
       </p>
       <div class='grid grid-cols-4 grid-rows-5 gap-5'>
         <div class='col-span-2 row-span-2'>
-          <video src='./gifs-home-3.mp4' autoplay loop muted> </video>
+          <video class='gift-video' src='./gifs-home-3.mp4' loop muted></video>
         </div>
         <div class='col-span-2 row-span-2 col-start-3'>
-          <video src='./gifs-home-4.mp4' autoplay loop muted> </video>
+          <video class='gift-video' src='./gifs-home-4.mp4' loop muted></video>
         </div>
         <div class='col-span-2 row-span-3 row-start-3'>
-          <video src='./gifs-home-1.mp4' autoplay loop muted> </video>
+          <video class='gift-video' src='./gifs-home-1.mp4' loop muted></video>
         </div>
         <div class='col-span-2 row-span-3 col-start-3 row-start-3'>
-          <video src='./gifs-home-2.mp4' autoplay loop muted> </video>
+          <video class='gift-video' src='./gifs-home-2.mp4' loop muted></video>
         </div>
       </div>
     </SectionContainer>
@@ -45,21 +41,22 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
     <Globe client:load />
 
     <ScrollEffect text='Listo para crear algo increible' class='bg-[#0D0D0D]' />
-
-    <!-- <SectionContainer id='experiencia' class='pb-6'>
-      <VideoText
-        title='Skere'
-        content='Un ejemplo a destacar de la maestría que tiene WAHM es este proyecto para La Daurada Club, donde se demuestra la capacidad para convertir la simple documentación de eventos en una experiencia agresiva y cautivadora. La cinematografía de La Daurada no solo documentó la música pulsante y las luces hipnóticas, sino que también transmitió la autenticidad y la intensidad de la experiencia nocturna. Vamos más allá de la estética convencional. Para nosotros, cada vídeo tiene que ser una obra de arte que capte la conexión entre la música, la luz y la audiencia, invitando al espectador a sumergirse en la energía inquebrantable de la noche. Redefinimos la grabación de eventos nocturnos, ofreciendo una experiencia visual que trasciende las expectativas y establece un nuevo estándar en la cinematografía nocturna.'
-        src='https://player.vimeo.com/video/245868810?h=4fa30ae97f&autoplay=1&background=1'
-        reverse:
-        false
-      />
-      <VideoText
-        title='Skere'
-        content='Un ejemplo a destacar de la maestría que tiene WAHM es este proyecto para La Daurada Club, donde se demuestra la capacidad para convertir la simple documentación de eventos en una experiencia agresiva y cautivadora. La cinematografía de La Daurada no solo documentó la música pulsante y las luces hipnóticas, sino que también transmitió la autenticidad y la intensidad de la experiencia nocturna. Vamos más allá de la estética convencional. Para nosotros, cada vídeo tiene que ser una obra de arte que capte la conexión entre la música, la luz y la audiencia, invitando al espectador a sumergirse en la energía inquebrantable de la noche. Redefinimos la grabación de eventos nocturnos, ofreciendo una experiencia visual que trasciende las expectativas y establece un nuevo estándar en la cinematografía nocturna.'
-        src='https://player.vimeo.com/video/245868810?h=4fa30ae97f&autoplay=1&background=1'
-        reverse='true'
-      />
-    </SectionContainer> -->
   </main>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.gift-video')
+
+    videos.forEach((video) => {
+      video.addEventListener('mouseenter', () => {
+        videos.forEach((v) => {
+          if (v !== video) {
+            v.pause()
+          }
+        })
+        video.play()
+      })
+    })
+  })
+</script>

@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const words = ['Primera', 'Segunda', 'Tercera', '¡Final!']
+const words = ['Primera', 'Segunda', 'Tercera', '¡Fital!']
 
 const BigWordsScroll = () => {
   const containerRef = useRef(null)
@@ -26,7 +26,7 @@ const BigWordsScroll = () => {
     wordRefs.current.forEach((word, index) => {
       const scaleStart = 0.5
       const scaleEnd =
-        index === wordRefs.current.length - 1 ? 20 : 5 + index * 2
+        index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
       const positionEnd =
         index === wordRefs.current.length - 1
           ? { top: '50%', left: '50%', x: '-50%', y: '-50%' }
@@ -45,6 +45,14 @@ const BigWordsScroll = () => {
         },
         index * 0.2
       )
+
+      // Cambiar el fondo si es la última palabra
+      if (index === wordRefs.current.length - 1) {
+        tl.to(container, {
+          backgroundColor: '#0D0D0D', // Cambia al color de fondo deseado
+          duration: 0.2
+        })
+      }
     })
 
     return () => {

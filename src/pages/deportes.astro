@@ -5,6 +5,8 @@ import FooterWorks from '../components/FooterWorks.astro'
 import SectionContainer from '../components/SectionContainer.astro'
 import General1 from '../components/Works/General1.astro'
 import General2 from '../components/Works/General2.astro'
+import General3 from '../components/Works/General3.astro'
+import General4 from '../components/Works/General4.astro'
 ---
 
 <Layout title='Welcome to Astro.'>
@@ -27,6 +29,18 @@ import General2 from '../components/Works/General2.astro'
         text=' Mis vídeos reflejan la energía y el espíritu de cada evento deportivo. Documentar la acción en vivo y los momentos clave permite que los espectadores revivan la emoción una y otra vez.'
         video=''
       />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General3 video1='' video2='' video3='' />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General4 video1='' video2='' video3='' />
+    </SectionContainer>
+
+    <SectionContainer class='pb-6'>
+      <General3 video1='' video2='' video3='' />
     </SectionContainer>
   </main>
   <FooterWorks
