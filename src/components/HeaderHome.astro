@@ -1,41 +1,9 @@
 ---
 import NavbarMenu from './NavbarMenu.astro'
+import HeaderAnm from './React/HeaderaAnm'
 ---
 
 <header class='h-screen relative content-trigger'>
   <NavbarMenu />
-  <div class='video-container'>
-    <video
-      class='absolute top-0'
-      width='320'
-      height='240'
-      muted
-      loop
-      autoplay
-      style='width: 100%; height: auto;'>
-      <source
-        src='./video-header.mp4'
-        type='video/mp4'
-        media='(min-width: 1024px)'
-      />
-      <source
-        src='./instagram-video.mp4'
-        type='video/mp4'
-        media='(max-width: 1023px)'
-      />
-    </video>
-  </div>
-  <img
-    src='./o-logo.png'
-    alt='Logo'
-    width='500px'
-    height='500px'
-    class='absolute logo'
-    style='top: 50%; left: 50%; transform: translate(-50%, -50%); filter: drop-shadow(0 0 10px rgba(0,0,0,.8));'
-  />
-  <h1
-    class='absolute text-3xl headline'
-    style="bottom: 15%; left: 50%; transform: translate(-50%, 0%); font-family: 'Exo 2', sans-serif; text-shadow: 3px 3px 5px rgba(0,0,0,0.5);">
-    Oriol Ortega
-  </h1>
+  <HeaderAnm client:load />
 </header>
