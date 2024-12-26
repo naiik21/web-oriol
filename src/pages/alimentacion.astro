@@ -8,30 +8,34 @@ import General2 from '../components/Works/General2.astro'
 import General3 from '../components/Works/General3.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout title=''>
   <Banner
     video='/portadas-trabajos/alimentacion-portada.mp4'
     title='Alimentacion'
     videoMobile=''
   />
-  <main>
-    <SectionContainer class='pb-6'>
+  <main class='pb-20 mx-5'>
+    <SectionContainer class='py-20 2xl:pt-80 xl:pt-20 md:pt-56'>
       <General1
         title='El Arte de la Alimentación en Video'
         text='Transmitir la esencia de la alimentación va más allá de capturar un plato. Se trata de mostrar la dedicación y el arte detrás de cada creación culinaria.'
-        video=''
+        video='https://drive.google.com/file/d/1GhKQrB15arvFVontTDlpf-Le6MmxwGjx/'
       />
     </SectionContainer>
 
-    <SectionContainer class='pb-6'>
+    <SectionContainer class='py-20'>
       <General2
         text='Mis vídeos para el sector alimentario destacan cada aspecto de la cocina, desde la selección de ingredientes hasta la presentación final en el plato. Capturo texturas, colores y detalles de cada creación para que la audiencia sienta el sabor y la experiencia culinaria a través de la pantalla.'
-        video=''
+        video='./gifs-trabajos/gif-alimentacion.mp4'
       />
     </SectionContainer>
 
-    <SectionContainer class='pb-6'>
-      <General3 video1='' video2='' video3='' />
+    <SectionContainer class='py-20'>
+      <General3
+        video1='https://drive.google.com/file/d/1GsExFFsYl-N4hXWwrQ15BjOFotEX4N1z/'
+        video2='https://drive.google.com/file/d/1-H33cnOGPc9AeYRsJthGMnnu8w1s7Oyz/'
+        video3='https://drive.google.com/file/d/1Co4qZ4s3kMRtwLmLxgrZAsi6Ymd1WUXY/'
+      />
     </SectionContainer>
   </main>
   <FooterWorks

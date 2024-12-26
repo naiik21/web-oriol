@@ -37,7 +37,7 @@ const { pathname } = Astro.url
   <body>
     {pathname === '/' ? <HeaderHome /> : <Header />}
     <slot />
-    {pathname === '/works' ? null : <Footer />}
+    {pathname.startsWith('/works') ? null : <Footer />}
   </body>
 </html>
 <style is:global>

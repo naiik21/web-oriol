@@ -13,28 +13,26 @@ const { video1, video2, video3, video4, video5 } = Astro.props
   <div class='w-full flex flex-row gap-8'>
     <iframe
       class='w-full aspect-[1/2]'
-      src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+      src={video1 + 'preview'}
       allow='autoplay'></iframe>
 
     <iframe
       class='w-full aspect-[1/2]'
-      src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+      src={video2 + 'preview'}
       allow='autoplay'></iframe>
   </div>
-  <iframe
-    class='w-full'
-    src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
-    allow='autoplay'></iframe>
+
+  <iframe class='w-full' src={video3 + 'preview'} allow='autoplay'></iframe>
 
   <div class='w-full flex flex-row gap-8'>
     <iframe
       class='w-full aspect-[1/2]'
-      src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+      src={video4 + 'preview'}
       allow='autoplay'></iframe>
 
     <iframe
       class='w-full aspect-[1/2]'
-      src='https://drive.google.com/file/d/1zD2-gPXfKx94T5cygYpEgzP-vMrikQKB/preview'
+      src={video5 + 'preview'}
       allow='autoplay'></iframe>
   </div>
 </div>

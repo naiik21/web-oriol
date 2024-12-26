@@ -8,30 +8,34 @@ import General2 from '../components/Works/General2.astro'
 import General3 from '../components/Works/General3.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout title='Crea tu Restaurante en Video'>
   <Banner
     video='/portadas-trabajos/restaurantes-portada.mp4'
     title='Restaurantes'
     videoMobile=''
   />
-  <main>
-    <SectionContainer class='pb-6'>
+  <main class='pb-20 mx-5'>
+    <SectionContainer class='py-20 2xl:pt-80 xl:pt-20 md:pt-56'>
       <General1
         title='El Sabor de tu Marca, en Video'
         text=' Un buen plato merece una presentación que haga justicia a su sabor. Mis vídeos para restaurantes capturan la atmósfera, el arte culinario y la experiencia gastronómica que ofreces.'
-        video=''
+        video='https://drive.google.com/file/d/1tMSSk5hIVYxBFi2DgxAf9_3N7jJcaPDQ/'
       />
     </SectionContainer>
 
-    <SectionContainer class='pb-6'>
+    <SectionContainer class='py-20'>
       <General2
         text='Con cada vídeo, destaco la identidad única de tu restaurante, desde la calidad de los ingredientes hasta la calidez del servicio. Cada detalle importa para crear una experiencia visual que atraiga y fidelice a tus clientes.'
-        video=''
+        video='./gifs-trabajos/gif-restaurantes.mp4'
       />
     </SectionContainer>
 
-    <SectionContainer class='pb-6'>
-      <General3 video1='' video2='' video3='' />
+    <SectionContainer class='py-20'>
+      <General3
+        video1='https://drive.google.com/file/d/1Q7ZkDPidcqknoWaqQ0NfjBrFeHMbrBkG/'
+        video2='https://drive.google.com/file/d/1Oe78LpD5kZSmsoEL7Fh_T9MQiYuhMzX1/'
+        video3='https://drive.google.com/file/d/1esB5XjVumtCZmqeleDsur4eq8tVZ-sQA/'
+      />
     </SectionContainer>
   </main>
   <FooterWorks

@@ -8,30 +8,35 @@ import General2 from '../components/Works/General2.astro'
 import Bodas5 from '../components/Works/Bodas5.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
+<Layout title=''>
   <Banner
     video='/portadas-trabajos/bodas-portada.mp4'
     title='Bodas'
     videoMobile=''
   />
-  <main>
-    <SectionContainer class='pb-6'>
+  <main class='pb-20 mx-5'>
+    <SectionContainer class='py-20 2xl:pt-80 xl:pt-20 md:pt-56'>
       <General1
         title='Creando Recuerdos Eternos'
         text=' Una boda es un momento único e irrepetible. Mis vídeos capturan la emoción, los detalles y el amor que llenan ese día tan especial.'
-        video=''
+        video='https://drive.google.com/file/d/1BvJRgDcWVHrZiR_fVTsy8oTlGIIiq85g/'
       />
     </SectionContainer>
 
-    <SectionContainer class='pb-6'>
+    <SectionContainer class='py-20'>
       <General2
         text='Cada boda tiene su propia historia, y mi objetivo es narrarla de forma auténtica y emocional. Desde los votos hasta la primera danza, cada momento queda inmortalizado en un recuerdo visual que podrás revivir siempre.'
-        video=''
+        video='./gifs-trabajos/gif-bodas.mp4'
       />
     </SectionContainer>
 
-    <SectionContainer class='pb-6'>
-      <Bodas5 video1='' video2='' video3='' video4='' />
+    <SectionContainer class='py-20'>
+      <Bodas5
+        video1='https://drive.google.com/file/d/13jKnZxkh38_Zb_woV8D0KOwfvy42xDyX/'
+        video2='https://drive.google.com/file/d/183fh0JMW44Be-lx8HxA1lTdHpXGhzi68/'
+        video3='https://drive.google.com/file/d/1wKLvERzOynx9NX6N0EQmzNwSS-vuwd4S/'
+        video4='https://drive.google.com/file/d/1VY144Mw3Dtv0xWaOTXRV9EyQpbB_PzGi/'
+      />
     </SectionContainer>
   </main>
   <FooterWorks
