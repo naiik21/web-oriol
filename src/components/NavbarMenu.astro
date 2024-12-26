@@ -2,126 +2,93 @@
 const currentPath = Astro.url.pathname
 ---
 
-<style>
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: #0d0d0d96;
-    /* background: #a6a6a696; */
-    backdrop-filter: blur(20px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    z-index: 1000;
-  }
-
-  .navbar.none {
-    display: none;
-  }
-
-  .navbar.display {
-    display: block;
-  }
-
-  .navbar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 60px;
-  }
-
-  .navbar li {
-    width: 100px;
-    position: relative;
-    margin: 0 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-  }
-
-  .navbar a {
-    text-decoration: none;
-    color: #a6a6a6;
-    /* color: #262626; */
-    font-size: 16px;
-    font-weight: bold;
-    padding: 5px 10px;
-    transition: color 0.3s ease;
-  }
-
-  .navbar a:hover {
-    color: #d9d9d9;
-    /* color: #0d0d0d; */
-  }
-
-  #dropdownHover {
-    display: none;
-  }
-
-  .navbar img:hover ~ #dropdownHover {
-    display: block;
-  }
-
-  #dropdownHover:hover {
-    display: block;
-  }
-</style>
-
-<div class='w-full mx-auto xl:w-[1300px] navbar display z-30 fixed' id='navbar'>
-  <ul>
-    <li>
-      <a href='/'>Inicio</a>
+<!-- Main Navbar -->
+<div
+  class='w-full mx-auto xl:w-[1300px] fixed top-0 bg-black/60 backdrop-blur-lg shadow-md transition-all z-30'
+  id='navbar'>
+  <ul class='flex justify-center items-center h-[60px] list-none m-0 p-0'>
+    <li class='mx-4'>
+      <a
+        href='/'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Inicio</a
+      >
     </li>
-    <li>
-      <a href='/aboutMe'>Sobre Mi</a>
+    <li class='mx-4'>
+      <a
+        href='/aboutMe'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Sobre Mi</a
+      >
     </li>
-    <li>
-      <a href='/works'>Trabajos</a>
+    <li class='mx-4'>
+      <a
+        href='/works'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Trabajos</a
+      >
     </li>
-    <li>
-      <a href='/contact'>Contacto</a>
+    <li class='mx-4'>
+      <a
+        href='/contact'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Contacto</a
+      >
     </li>
   </ul>
 </div>
 
-<div class='navbar none z-30 fixed w-full xl:w-[1300px]' id='navbar-scroll'>
-  <ul>
-    <li>
-      <a href='/'>Inicio</a>
+<!-- Scroll Navbar -->
+<div
+  class='w-full mx-auto xl:w-[1300px] fixed top-0 hidden bg-black/60 backdrop-blur-lg shadow-md transition-all z-30'
+  id='navbar-scroll'>
+  <ul class='flex justify-center items-center h-[60px] list-none m-0 p-0'>
+    <li class='mx-4'>
+      <a
+        href='/'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Inicio</a
+      >
     </li>
-    <li>
-      <a href='/aboutMe'>Sobre Mi</a>
+    <li class='mx-4'>
+      <a
+        href='/aboutMe'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Sobre Mi</a
+      >
     </li>
-    <li>
-      <img src='./o-logo.png' alt='Logo' width='50px' height='50px' />
+    <li class='mx-4'>
+      <img src='./o-logo.png' alt='Logo' class='w-[50px] h-[50px]' />
     </li>
-    <li>
-      <a href='/works'>Trabajos</a>
+    <li class='mx-4'>
+      <a
+        href='/works'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Trabajos</a
+      >
     </li>
-    <li>
-      <a href='/contact'>Contacto</a>
+    <li class='mx-4'>
+      <a
+        href='/contact'
+        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+        >Contacto</a
+      >
     </li>
   </ul>
 </div>
 
 <script>
+  // Navbar Scroll Effect
   const navbar = document.getElementById('navbar')
   const navbarScroll = document.getElementById('navbar-scroll')
 
   window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
-      navbar.classList.add('none')
-      navbar.classList.remove('display')
-      navbarScroll.classList.add('display')
-      navbarScroll.classList.remove('none')
+      navbar.classList.add('hidden')
+      navbarScroll.classList.remove('hidden')
     } else {
-      navbar.classList.add('display')
-      navbar.classList.remove('none')
-      navbarScroll.classList.add('none')
-      navbarScroll.classList.remove('display')
+      navbar.classList.remove('hidden')
+      navbarScroll.classList.add('hidden')
     }
   })
 </script>
