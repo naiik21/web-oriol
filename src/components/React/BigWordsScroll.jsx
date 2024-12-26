@@ -1,8 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
+import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
+// Registra el plugin de ScrollTrigger
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 const words = ['Primera', 'Segunda', 'Tercera', '¡Fital!']
 
@@ -24,7 +27,6 @@ const BigWordsScroll = () => {
 
     // Configurar animaciones para cada palabra
     wordRefs.current.forEach((word, index) => {
-      const scaleStart = 0.5
       const scaleEnd =
         index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
       const positionEnd =
@@ -55,8 +57,10 @@ const BigWordsScroll = () => {
       }
     })
 
+    // Limpiar animaciones y ScrollTrigger al desmontar el componente
     return () => {
-      if (tl) tl.kill()
+      tl.kill()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [])
 

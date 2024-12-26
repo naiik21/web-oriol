@@ -2,7 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
-gsap.registerPlugin(ScrollTrigger)
+// Registra el plugin de ScrollTrigger
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger)
+}
 
 const HeaderAnm = () => {
   const containerRef = useRef(null)
@@ -29,8 +32,10 @@ const HeaderAnm = () => {
       { y: '0%', opacity: 1, duration: 2 } // Posición final: centrado y opaco
     )
 
+    // Limpiar animaciones y ScrollTrigger al desmontar el componente
     return () => {
-      if (tl) tl.kill()
+      tl.kill()
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [])
 
