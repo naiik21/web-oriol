@@ -36,16 +36,19 @@ export function Globe() {
       markerColor: [251 / 255, 100 / 255, 21 / 255],
       glowColor: [1.2, 1.2, 1.2],
       markers: [
-        { location: [31.1, 121.28], size: 0.03 },
-        { location: [33.5204, 151.1236], size: 0.15 },
-        { location: [0.064, 39.414], size: 0.05 }
-        // { location: [., .], size: 0.07 },
-        // { location: [., .], size: 0.08 },
-        // { location: [., .], size: 0.1 },
-        // { location: [., .], size: 0.1 },
-        // { location: [., .], size: 0.1 },
-        // { location: [., .], size: 0.05 },
-        // { location: [., .], size: 0.06 }
+        { location: [-33.880813, 151.207923], size: 0.1 }, //Sídney
+        { location: [-16.919923, 145.76142], size: 0.07 }, //Cairns
+        { location: [31.089809, 121.376008], size: 0.03 }, //Shanghái
+        { location: [51.476034, -0.163432], size: 0.02 }, //Londres
+        { location: [40.385562, -3.695469], size: 0.15 }, //Madríd
+        { location: [13.797088, 100.649347], size: 0.03 }, //Baonkok
+        { location: [37.758671, -122.455465], size: 0.02 }, //San Francisco
+        { location: [-12.367551, -74.434533], size: 0.02 }, //Peru
+        { location: [64.320273, -18.792529], size: 0.04 }, //Islandia
+        { location: [42.187097, 13.079283], size: 0.06 }, //Italia
+        { location: [45.692713, 16.070521], size: 0.03 }, //Croacia
+        { location: [52.239098, 4.868355], size: 0.02 }, //Holanda
+        { location: [-1.757445, 37.116407], size: 0.04 } //Kenia
       ],
       onRender: (state) => {
         // This prevents rotation while dragging
