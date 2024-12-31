@@ -7,7 +7,7 @@ if (typeof window !== 'undefined') {
   gsap.registerPlugin(ScrollTrigger)
 }
 
-const words = ['Primera', 'Segunda', 'Tercera', '¡Fital!']
+const words = ['Primera', 'Segunda', 'Tercera', '¡Final!']
 
 const BigWordsScroll = () => {
   const containerRef = useRef(null)
@@ -25,39 +25,39 @@ const BigWordsScroll = () => {
       }
     })
 
-    // Configurar animaciones para cada palabra
-    wordRefs.current.forEach((word, index) => {
-      const scaleEnd =
-        index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
-      const positionEnd =
-        index === wordRefs.current.length - 1
-          ? { top: '50%', left: '50%', x: '-50%', y: '-50%' }
-          : {
-              x: `${Math.random() > 0.5 ? 1000 : -1000}%`,
-              y: `${Math.random() > 0.5 ? 1000 : -1000}%`
-            }
+    if (wordRefs.current.length) {
+      wordRefs.current.forEach((word, index) => {
+        const scaleEnd =
+          index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
+        const positionEnd =
+          index === wordRefs.current.length - 1
+            ? { top: '50%', left: '50%', x: '-50%', y: '-50%' }
+            : {
+                x: `${Math.random() > 0.5 ? 1000 : -1000}%`,
+                y: `${Math.random() > 0.5 ? 1000 : -1000}%`
+              }
 
-      tl.to(
-        word,
-        {
-          scale: scaleEnd,
-          opacity: 1,
-          ...positionEnd,
-          duration: 1
-        },
-        index * 0.2
-      )
+        tl.to(
+          word,
+          {
+            scale: scaleEnd,
+            opacity: 1,
+            ...positionEnd,
+            duration: 1
+          },
+          index * 0.2
+        )
 
-      // Cambiar el fondo si es la última palabra
-      if (index === wordRefs.current.length - 1) {
-        tl.to(container, {
-          backgroundColor: '#0D0D0D', // Cambia al color de fondo deseado
-          duration: 0.2
-        })
-      }
-    })
+        // Cambiar el fondo si es la última palabra
+        if (index === wordRefs.current.length - 1) {
+          tl.to(container, {
+            backgroundColor: '#0D0D0D',
+            duration: 0.2
+          })
+        }
+      })
+    }
 
-    // Limpiar animaciones y ScrollTrigger al desmontar el componente
     return () => {
       tl.kill()
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
@@ -66,8 +66,8 @@ const BigWordsScroll = () => {
 
   const generateRandomStyles = () => {
     return words.map(() => ({
-      top: `${Math.random() * 20 + 30}%`, // Aparece más cerca del centro verticalmente
-      left: `${Math.random() * 20 + 30}%`, // Aparece más cerca del centro horizontalmente
+      top: `${Math.random() * 40 + 30}%`, // Rango de posición más centrado
+      left: `${Math.random() * 40 + 30}%`, // Rango de posición más centrado
       fontSize: `${Math.random() * 2 + 3}rem`
     }))
   }

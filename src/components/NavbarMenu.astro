@@ -1,12 +1,17 @@
----
-const currentPath = Astro.url.pathname
----
-
 <!-- Main Navbar -->
 <div
-  class='w-full mx-auto fixed top-0 bg-black/60 backdrop-blur-lg shadow-md transition-all z-30'
+  class='w-full mx-auto fixed top-0 bg-black/60 backdrop-blur-lg shadow-md transition-all z-30 flex justify-between items-center px-4'
   id='navbar'>
-  <ul class='flex justify-center items-center h-[60px] list-none m-0 p-0'>
+  <div class='w-[50px] h-[50px] flex items-center justify-center'>
+    <img src='./o-logo.png' alt='Logo' class='w-[40px] h-[40px]' />
+  </div>
+  <button
+    class='md:hidden text-gray-400 text-2xl focus:outline-none'
+    id='burger-menu'>
+    &#9776;
+  </button>
+  <ul
+    class='hidden md:flex justify-center items-center h-[60px] list-none m-0 p-0'>
     <li class='mx-4 w-[80px] flex justify-center'>
       <a
         href='/'
@@ -38,39 +43,29 @@ const currentPath = Astro.url.pathname
   </ul>
 </div>
 
-<!-- Scroll Navbar -->
+<!-- Mobile Menu Component -->
 <div
-  class='w-full mx-auto fixed top-0 hidden bg-black/60 backdrop-blur-lg shadow-md transition-all z-30'
-  id='navbar-scroll'>
-  <ul class='flex justify-center items-center h-[60px] list-none m-0 p-0'>
-    <li class='mx-4 w-[80px] flex justify-center'>
-      <a
-        href='/'
-        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
-        >Inicio</a
-      >
+  id='mobile-menu'
+  class='fixed top-0 left-0 w-full h-full bg-black/80 text-white z-[1] flex flex-col items-center justify-center transition-all transform -translate-x-full'>
+  <button
+    id='close-mobile-menu'
+    class='absolute top-4 right-4 text-white text-2xl'>X</button
+  >
+  <ul class='list-none text-center'>
+    <li class='my-4'>
+      <a href='/' class='text-lg font-bold hover:text-gray-300'>Inicio</a>
     </li>
-    <li class='mx-4 w-[80px] flex justify-center'>
-      <a
-        href='/aboutMe'
-        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+    <li class='my-4'>
+      <a href='/aboutMe' class='text-lg font-bold hover:text-gray-300'
         >Sobre Mi</a
       >
     </li>
-    <li class='mx-4 w-[80px] flex justify-center'>
-      <img src='./o-logo.png' alt='Logo' class='w-[50px] h-[50px]' />
-    </li>
-    <li class='mx-4 w-[80px] flex justify-center'>
-      <a
-        href='/works'
-        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
-        >Trabajos</a
+    <li class='my-4'>
+      <a href='/works' class='text-lg font-bold hover:text-gray-300'>Trabajos</a
       >
     </li>
-    <li class='mx-4 w-[80px] flex justify-center'>
-      <a
-        href='/contact'
-        class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
+    <li class='my-4'>
+      <a href='/contact' class='text-lg font-bold hover:text-gray-300'
         >Contacto</a
       >
     </li>
@@ -78,17 +73,31 @@ const currentPath = Astro.url.pathname
 </div>
 
 <script>
-  // Navbar Scroll Effect
+  // Obtener los elementos
   const navbar = document.getElementById('navbar')
-  const navbarScroll = document.getElementById('navbar-scroll')
+  const mobileMenu = document.getElementById('mobile-menu')
+  const burgerMenu = document.getElementById('burger-menu')
+  const closeMobileMenu = document.getElementById('close-mobile-menu')
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      navbar.classList.add('hidden')
-      navbarScroll.classList.remove('hidden')
+  // Función para abrir el menú móvil
+  const openMobileMenu = () => {
+    mobileMenu.style.transform = 'translateX(0)'
+  }
+
+  // Función para cerrar el menú móvil
+  const closeMenu = () => {
+    mobileMenu.style.transform = 'translateX(-100%)'
+  }
+
+  // Alternar la apertura y cierre del menú al hacer clic en el burger-menu
+  burgerMenu.addEventListener('click', () => {
+    if (mobileMenu.style.transform === 'translateX(0px)') {
+      closeMenu()
     } else {
-      navbar.classList.remove('hidden')
-      navbarScroll.classList.add('hidden')
+      openMobileMenu()
     }
   })
+
+  // Cerrar el menú al hacer clic en el botón de cierre dentro del menú
+  closeMobileMenu.addEventListener('click', closeMenu)
 </script>

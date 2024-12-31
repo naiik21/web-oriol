@@ -43,7 +43,7 @@ const HeaderAnm = () => {
     <header ref={containerRef} className='h-screen relative content-trigger'>
       <div className='video-container'>
         <video
-          class='absolute top-0 left-0 object-cover w-screen h-screen'
+          class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
           width='320'
           height='240'
           muted
