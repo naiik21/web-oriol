@@ -12,19 +12,13 @@ const { video, title, videoMobile } = Astro.props
 <header class='h-screen relative'>
   <NavbarMenu />
   <video
-    class='absolute top-0'
+    class='absolute top-0 left-0 object-cover w-screen h-screen'
     width='320'
     height='240'
     muted
     loop
-    autoplay
-    style='width: 100%;  height: auto;'>
-    <source src={video} type='video/mp4' media='(min-width: 1024px)' />
-    <!-- <source
-      src= {videoMobile}
-      type='video/mp4'
-      media='(max-width: 1023px)'
-    /> -->
+    autoplay>
+    <source src={video} type='video/mp4' />
   </video>
   <h1
     class='absolute text-black w-max text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl'

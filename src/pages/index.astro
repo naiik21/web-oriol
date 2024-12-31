@@ -8,27 +8,31 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
 ---
 
 <Layout title='Oriol Ortega | Home'>
-  <main>
+  <main class=''>
     <SectionContainer class='py-20 2xl:pt-80 xl:pt-20 md:pt-56'>
       <h2
-        class='leading-none text-center font-semibold mb-6 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
+        class='leading-none justify-center text-center font-semibold mb-6 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
         Historias que inspiran y conectan
       </h2>
       <p class='mb-4 text-xl max-w-[850px] text-center my-5 mx-auto'>
         Cada proyecto es una oportunidad para crear algo especial. Desde eventos
         hasta campañas de marca, capturo la esencia de cada momento.
       </p>
-      <div class='grid grid-cols-4 grid-rows-5 gap-5'>
-        <div class='col-span-2 row-span-2'>
+      <div
+        class='grid grid-cols-1 grid-rows-4 gap-5 md:grid-cols-4 md:grid-rows-5'>
+        <div class='md:col-span-2 md:row-span-2'>
           <video class='gift-video' src='./gifs-home-3.mp4' loop muted></video>
         </div>
-        <div class='col-span-2 row-span-2 col-start-3'>
+        <div
+          class='col-start-1 row-start-4 md:col-span-2 md:row-span-2 md:col-start-3'>
           <video class='gift-video' src='./gifs-home-4.mp4' loop muted></video>
         </div>
-        <div class='col-span-2 row-span-3 row-start-3'>
+        <div
+          class='row-span-2 col-start-1 row-start-2 md:col-span-2 md:row-span-3 md:row-start-3'>
           <video class='gift-video' src='./gifs-home-1.mp4' loop muted></video>
         </div>
-        <div class='col-span-2 row-span-3 col-start-3 row-start-3'>
+        <div
+          class='row-span-2 row-start-5 md:col-span-2 md:row-span-3 md:col-start-3 md:row-start-3'>
           <video class='gift-video' src='./gifs-home-2.mp4' loop muted></video>
         </div>
       </div>

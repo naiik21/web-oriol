@@ -1,8 +1,6 @@
 ---
-import Facebook from './Icons/Facebook.astro'
-import Instagram from './Icons/Instagram.astro'
 import LinkedIn from './Icons/LinkedIn.astro'
-import Youtube from './Icons/Youtube.astro'
+import Mail from './Icons/Mail.astro'
 
 interface Props {
   text: string
@@ -10,37 +8,39 @@ interface Props {
 const { text } = Astro.props
 ---
 
-<div class='w-full mx-auto xl:w-[1600px] mb-10'>
+<div class='w-full mx-auto xl:max-w-[1600px] mb-10'>
   <h4
     class='text-center text-xl xl:text-5xl lg:text-4xl md:text-3xl sm:text-2xl'>
     {text}
   </h4>
 </div>
-<footer class='w-full mx-auto xl:w-[1600px] mb-5 justify-center'>
-  <div class='flex flex-col justify-evenly sm:flex-row'>
-    <div class='flex items-center gap-5 w-[350px] justify-center'>
-      <Facebook class='size-9' />
-      <Instagram class='size-9' />
-      <LinkedIn class='size-9' />
-      <Youtube class='size-9' />
-    </div>
-
+<footer class='w-full mx-auto xl:max-w-[1500px] mb-5 justify-center'>
+  <div class='md:mx-5 flex flex-row justify-between sm:flex-row'>
     <a href='/'>
       <img
         src='./o-logo.png'
         alt='Logo'
         width='100px'
         height='10px'
-        class='mx-5'
         style='filter: drop-shadow(0 0 5px rgba(0,0,0,.8));'
       />
     </a>
 
-    <div class='flex items-center gap-5 w-[350px] justify-center font-semibold'>
-      <a href='/'>Inicio</a>
-      <a href='/aboutMe'>Sobre Mi</a>
-      <a href='/works'>Trabajos</a>
-      <a href='/contact'>Contacto</a>
+    <div class='flex items-center gap-2 md:gap-5 w-[350px] justify-center'>
+      <a
+        href='https://www.linkedin.com/in/oriol-ortega-bogu%C3%B1a-5149651b8/'
+        target='_blank'
+        class='flex items-center gap-2'>
+        <LinkedIn class='size-9' />
+      </a>
+
+      <a
+        href='mailto:name@email.com'
+        target='_blank'
+        class='flex items-center gap-2'>
+        <Mail class='size-9' />
+        oriolortega@gmail.com
+      </a>
     </div>
   </div>
 </footer>

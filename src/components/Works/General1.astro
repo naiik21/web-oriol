@@ -8,15 +8,15 @@ const { title, text, video } = Astro.props
 ---
 
 <h2
-  class='leading-none text-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
+  class='leading-none text-center justify-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
   {title}
 </h2>
 
 <div class='flex gap-8 flex-col-reverse md:flex-row'>
-  <p class='w-1/2 text-[24px] xl:text-[30px] md:text-[26px]'>
+  <p class='text-[24px] xl:text-[30px] md:text-[26px] md:w-1/2'>
     {text}
   </p>
-  <aside class='w-1/2'>
+  <aside class='md:w-1/2'>
     <iframe
       class='w-full aspect-[2/1]'
       src={video + 'preview'}

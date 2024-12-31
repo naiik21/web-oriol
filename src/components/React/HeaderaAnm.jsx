@@ -43,23 +43,13 @@ const HeaderAnm = () => {
     <header ref={containerRef} className='h-screen relative content-trigger'>
       <div className='video-container'>
         <video
-          className='absolute top-0'
+          class='absolute top-0 left-0 object-cover w-screen h-screen'
           width='320'
           height='240'
           muted
           loop
-          autoPlay
-          style={{ width: '100%', height: 'auto' }}>
-          <source
-            src='./video-header.mp4'
-            type='video/mp4'
-            media='(min-width: 1024px)'
-          />
-          <source
-            src='./instagram-video.mp4'
-            type='video/mp4'
-            media='(max-width: 1023px)'
-          />
+          autoPlay>
+          <source src='./video-header.mp4' type='video/mp4' />
         </video>
       </div>
 

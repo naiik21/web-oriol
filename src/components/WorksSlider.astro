@@ -71,7 +71,7 @@ const WORKSTYPES = [
     {
       WORKSTYPES.map((work) => (
         <li
-          class={`${work.style} h-screen flex flex-none items-center justify-center text-8xl`}>
+          class={`${work.style || 'w-auto'} h-screen flex flex-none items-center justify-center text-4xl xl:text-8xl lg:text-7xl md:text-6xl sm:text-5xl`}>
           <WorkItem {...work} />
         </li>
       ))
@@ -83,8 +83,35 @@ const WORKSTYPES = [
   const scrollContainer = document.querySelector('#scroll-container')
   const scrollSpeed = 3.5 // Ajusta este valor para aumentar o reducir la velocidad
 
+  // Desplazamiento para PC
   scrollContainer.addEventListener('wheel', (event) => {
     event.preventDefault() // Evita el scroll vertical por defecto
     scrollContainer.scrollLeft += event.deltaY * scrollSpeed // Ajusta la velocidad
+  })
+
+  // Variables para manejo de desplazamiento táctil
+  let isTouching = false
+  let touchStartX = 0
+  let scrollStartX = 0
+
+  // Detectar el inicio del toque
+  scrollContainer.addEventListener('touchstart', (event) => {
+    isTouching = true
+    touchStartX = event.touches[0].clientX // Posición inicial del toque
+    scrollStartX = scrollContainer.scrollLeft // Posición inicial del scroll
+  })
+
+  // Detectar el movimiento del toque
+  scrollContainer.addEventListener('touchmove', (event) => {
+    if (!isTouching) return
+
+    const touchX = event.touches[0].clientX
+    const deltaX = touchStartX - touchX // Diferencia entre la posición inicial y actual del toque
+    scrollContainer.scrollLeft = scrollStartX + deltaX // Actualizar el scroll
+  })
+
+  // Detectar el fin del toque
+  scrollContainer.addEventListener('touchend', () => {
+    isTouching = false
   })
 </script>
