@@ -1,13 +1,27 @@
 import React, { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-// Registra el plugin de ScrollTrigger
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import { gsap, ScrollTrigger } from '../../utilities/global'
 
 const words = ['Primera', 'Segunda', 'Tercera', '¡Final!']
+
+const fontSizes = [
+  `${Math.random() * 2 + 3}rem`,
+  `${Math.random() * 2 + 3}rem`,
+  `${Math.random() * 3 + 4}rem`,
+  '1rem'
+]
+
+const topPositions = [
+  `${Math.random() * 35 + 30}%`,
+  `${Math.random() * 35 + 30}%`,
+  `${Math.random() * 40 + 35}%`,
+  '50%'
+]
+const leftPositions = [
+  `${Math.random() * 35 + 30}%`,
+  `${Math.random() * 40 + 35}%`,
+  `${Math.random() * 40 + 35}%`,
+  '50%'
+]
 
 const BigWordsScroll = () => {
   const containerRef = useRef(null)
@@ -15,64 +29,56 @@ const BigWordsScroll = () => {
 
   useEffect(() => {
     const container = containerRef.current
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: 'top top',
-        end: 'bottom+=300% top',
-        scrub: true,
-        pin: true
-      }
-    })
 
-    if (wordRefs.current.length) {
-      wordRefs.current.forEach((word, index) => {
-        const scaleEnd =
-          index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
-        const positionEnd =
-          index === wordRefs.current.length - 1
-            ? { top: '50%', left: '50%', x: '-50%', y: '-50%' }
-            : {
-                x: `${Math.random() > 0.5 ? 1000 : -1000}%`,
-                y: `${Math.random() > 0.5 ? 1000 : -1000}%`
-              }
-
-        tl.to(
-          word,
-          {
-            scale: scaleEnd,
-            opacity: 1,
-            ...positionEnd,
-            duration: 1
-          },
-          index * 0.2
-        )
-
-        // Cambiar el fondo si es la última palabra
-        if (index === wordRefs.current.length - 1) {
-          tl.to(container, {
-            backgroundColor: '#0D0D0D',
-            duration: 0.2
-          })
+    const initAnimation = () => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: container,
+          start: 'top top',
+          end: 'bottom+=300% top',
+          scrub: true,
+          pin: true
         }
       })
+
+      if (wordRefs.current.length) {
+        wordRefs.current.forEach((word, index) => {
+          const scaleEnd =
+            index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
+          const positionEnd =
+            index === wordRefs.current.length - 1
+              ? { top: '50%', left: '50%', x: '-50%', y: '-50%' }
+              : {
+                  x: `${Math.random() > 0.5 ? 700 : -700}%`,
+                  y: `${Math.random() > 0.5 ? 700 : -700}%`
+                }
+          tl.to(
+            word,
+            {
+              scale: scaleEnd,
+              opacity: 1,
+              ...positionEnd,
+              duration: 1
+            },
+            index * 0.2
+          )
+
+          if (index === wordRefs.current.length - 1) {
+            tl.to(container, {
+              backgroundColor: '#0D0D0D',
+              duration: 0.2
+            })
+          }
+        })
+      }
     }
 
+    requestAnimationFrame(initAnimation)
+
     return () => {
-      tl.kill()
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
     }
   }, [])
-
-  const generateRandomStyles = () => {
-    return words.map(() => ({
-      top: `${Math.random() * 40 + 30}%`, // Rango de posición más centrado
-      left: `${Math.random() * 40 + 30}%`, // Rango de posición más centrado
-      fontSize: `${Math.random() * 2 + 3}rem`
-    }))
-  }
-
-  const randomStyles = generateRandomStyles()
 
   return (
     <div
@@ -89,9 +95,9 @@ const BigWordsScroll = () => {
           ref={(el) => (wordRefs.current[index] = el)}
           style={{
             position: 'absolute',
-            top: randomStyles[index].top,
-            left: randomStyles[index].left,
-            fontSize: randomStyles[index].fontSize,
+            top: topPositions[index],
+            left: leftPositions[index],
+            fontSize: fontSizes[index],
             fontWeight: 'bold',
             color: '#0D0D0D',
             whiteSpace: 'nowrap',

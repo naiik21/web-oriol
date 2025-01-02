@@ -1,11 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-
-// Registra el plugin de ScrollTrigger
-if (typeof window !== 'undefined') {
-  gsap.registerPlugin(ScrollTrigger)
-}
+import { gsap, ScrollTrigger } from '../../utilities/global'
 
 const HeaderAnm = () => {
   const containerRef = useRef(null)

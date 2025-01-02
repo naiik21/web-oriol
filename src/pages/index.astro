@@ -9,7 +9,7 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
 
 <Layout title='Oriol Ortega | Home'>
   <main class=''>
-    <SectionContainer class='py-20 2xl:pt-80 xl:pt-20 md:pt-56'>
+    <SectionContainer class='py-24'>
       <h2
         class='leading-none justify-center text-center font-semibold mb-6 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
         Historias que inspiran y conectan
@@ -38,7 +38,7 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
       </div>
     </SectionContainer>
 
-    <BigWordsScroll client:load />
+    <BigWordsScroll client:visible='react' />
 
     <MarqueeContainer />
 
