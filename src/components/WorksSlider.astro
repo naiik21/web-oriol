@@ -12,7 +12,7 @@ const WORKSTYPES = [
   {
     title: 'Corporativos y Marcas',
     source: '/portadas-trabajos/corporativo-portada.mp4',
-    style: 'ml-5 md:ml-[25%]',
+    style: 'ml-[15%] md:ml-[25%]',
     src: '/corporativos'
   },
   {
@@ -53,7 +53,7 @@ const WORKSTYPES = [
   {
     title: 'Cortometraje',
     source: '/portadas-trabajos/cortometraje-portada.mp4',
-    style: 'mr-5 md:mr-[25%]',
+    style: 'mr-[15%] md:mr-[25%]',
     src: '/cortometraje'
   }
   // {
@@ -73,7 +73,7 @@ const WORKSTYPES = [
     {
       WORKSTYPES.map((work) => (
         <li
-          class={`${work.style || 'w-auto'} h-screen flex flex-none items-center justify-center text-4xl xl:text-8xl lg:text-7xl md:text-6xl sm:text-5xl`}>
+          class={`${work.style || 'w-auto'} h-screen flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl`}>
           <WorkItem {...work} />
         </li>
       ))
