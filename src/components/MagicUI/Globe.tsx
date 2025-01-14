@@ -23,14 +23,13 @@ export function Globe() {
     window.addEventListener('resize', onResize)
     onResize()
     const globe = createGlobe(canvasRef.current, {
-      devicePixelRatio: 2,
-      width: width * 2,
-      height: width * 2,
+      width: width * window.devicePixelRatio,
+      height: width * window.devicePixelRatio,
       phi: 0,
       theta: 0.3,
       dark: 1,
       diffuse: 3,
-      mapSamples: 16000,
+      mapSamples: 8000,
       mapBrightness: 1.2,
       baseColor: [1, 1, 1],
       markerColor: [251 / 255, 100 / 255, 21 / 255],
