@@ -23,8 +23,9 @@ export function Globe() {
     window.addEventListener('resize', onResize)
     onResize()
     const globe = createGlobe(canvasRef.current, {
-      width: width * window.devicePixelRatio,
-      height: width * window.devicePixelRatio,
+      devicePixelRatio: 2,
+      width: width * 2,
+      height: width * 2,
       phi: 0,
       theta: 0.3,
       dark: 1,
