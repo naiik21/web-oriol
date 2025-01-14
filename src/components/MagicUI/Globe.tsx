@@ -30,7 +30,7 @@ export function Globe() {
       theta: 0.3,
       dark: 1,
       diffuse: 3,
-      mapSamples: 8000,
+      mapSamples: 4000,
       mapBrightness: 1.2,
       baseColor: [1, 1, 1],
       markerColor: [251 / 255, 100 / 255, 21 / 255],
