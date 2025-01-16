@@ -26,11 +26,7 @@ const { pathname } = Astro.url
     <title>{title}</title>
     <link rel='preconnect' href='https://fonts.googleapis.com' />
     <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
-    <link
-      href='https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap'
-      rel='stylesheet'
-      media="print" onload="this.media='all'"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js'
     ></script>
     <script
@@ -62,12 +58,17 @@ const { pathname } = Astro.url
   h5,
   h6 {
     font-family:
-      Playfair Display,
-      serif;
+      "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
   }
 
   html {
-    font-family: 'Raleway', serif;
+    font-family: "Inter", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
     background: #d9d9d9;
     color: #0d0d0d;
   }
