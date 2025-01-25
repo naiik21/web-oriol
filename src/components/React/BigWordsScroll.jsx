@@ -1,25 +1,49 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../utilities/global'
 
-const words = ['Primera', 'Segunda', 'Tercera', '¡Final!']
+const words = [
+  'Capturando cada emoción y detalle',
+  'Narrativas que dejan huella',
+  'Visuales que conectan con tu audiencia',
+  'Momentos que merecen ser recordados',
+  'Emociones reales'
+]
 
 const fontSizes = [
   `${Math.random() * 2 + 3}rem`,
-  `${Math.random() * 2 + 3}rem`,
+  `${Math.random() * 4.5 + 5}rem`,
+  `${Math.random() * 1.5 + 2}rem`,
   `${Math.random() * 3 + 4}rem`,
   '1rem'
 ]
 
 const topPositions = [
-  `${Math.random() * 35 + 30}%`,
-  `${Math.random() * 35 + 30}%`,
-  `${Math.random() * 40 + 35}%`,
+  `${Math.random() * 40 + 10}%`,
+  `${Math.random() * 90 + 60}%`,
+  `${Math.random() * 40 + 10}%`,
+  `${Math.random() * 90 + 60}%`,
   '50%'
 ]
 const leftPositions = [
-  `${Math.random() * 35 + 30}%`,
-  `${Math.random() * 40 + 35}%`,
-  `${Math.random() * 40 + 35}%`,
+  `${Math.random() * 90 + 60}%`,
+  `${Math.random() * 90 + 60}%`,
+  `${Math.random() * 40 + 10}%`,
+  `${Math.random() * 40 + 10}%`,
+  '50%'
+]
+
+const topPositionsEnd = [
+  `${Math.random() * 40 + 10}%`,
+  `${Math.random() * 90 + 60}%`,
+  `${Math.random() * 40 + 10}%`,
+  `${Math.random() * 90 + 60}%`,
+  '50%'
+]
+const leftPositionsEnd = [
+  `${Math.random() * 90 + 60}%`,
+  `${Math.random() * 90 + 60}%`,
+  `${Math.random() * 40 + 10}%`,
+  `${Math.random() * 40 + 10}%`,
   '50%'
 ]
 

@@ -37,7 +37,7 @@ const HeaderAnm = () => {
     <header ref={containerRef} className='h-screen relative content-trigger'>
       <div className='video-container'>
         <video
-          class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
+          class='absolute top-0 left-0 object-cover w-screen h-screen'
           width='320'
           height='240'
           muted
@@ -63,7 +63,6 @@ const HeaderAnm = () => {
           height='500px'
           className=' logo'
         />
-        <h1 className='text-3xl flex justify-center headline'>Oriol Ortega</h1>
       </div>
     </header>
   )
