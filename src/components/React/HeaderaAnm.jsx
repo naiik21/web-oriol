@@ -44,8 +44,7 @@ const HeaderAnm = () => {
           loop
           autoPlay
           playsinline
-          preload='auto'
-          controls='false'>
+          preload='auto'>
           <source src='./video-header.mp4' type='video/mp4' />
         </video>
       </div>
