@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../utilities/global'
+import VideoHome from '../VideoHome.astro'
 
 const HeaderAnm = () => {
   const containerRef = useRef(null)
@@ -36,16 +37,7 @@ const HeaderAnm = () => {
   return (
     <header ref={containerRef} className='h-screen relative content-trigger'>
       <div className='video-container'>
-        <video
-          class='absolute top-0 left-0 object-cover w-screen h-screen'
-          width='320'
-          height='240'
-          muted
-          loop
-          autoPlay
-          playsinline>
-          <source src='./video-header.mp4' type='video/mp4' />
-        </video>
+        <VideoHome />
       </div>
 
       <div

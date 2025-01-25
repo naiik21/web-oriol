@@ -77,12 +77,18 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
 
     videos.forEach((video) => {
       video.addEventListener('mouseenter', () => {
+        // Pausar todos los videos
         videos.forEach((v) => {
-          if (v !== video) {
-            v.pause()
-          }
+          v.pause()
         })
+
+        // Reproducir el video sobre el que se pasó el mouse
         video.play()
+
+        // Configurar pausa después de 1 segundo
+        setTimeout(() => {
+          video.pause()
+        }, 1000) // 1000 ms = 1 segundo
       })
     })
   })
