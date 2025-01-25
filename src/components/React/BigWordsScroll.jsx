@@ -1,51 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../utilities/global'
 
-const words = [
-  'Capturando cada emoción y detalle',
-  'Narrativas que dejan huella',
-  'Visuales que conectan con tu audiencia',
-  'Momentos que merecen ser recordados',
-  'Emociones reales'
-]
-
-const fontSizes = [
-  `${Math.random() * 2 + 3}rem`,
-  `${Math.random() * 2.5 + 3}rem`,
-  `${Math.random() * 1 + 1.5}rem`,
-  `${Math.random() * 3 + 4}rem`,
-  '1rem'
-]
-
-const topPositions = [
-  `${Math.random() * 40 + 10}%`,
-  `${Math.random() * 40 + 10}%`,
-  `${Math.random() * (80 - 50) + 50}%`,
-  `${Math.random() * (90 - 60) + 60}%`,
-  '50%'
-]
-const leftPositions = [
-  `${Math.random() * 15 + 0}%`,
-  `${Math.random() * (80 - 50) + 50}%`,
-  `${Math.random() * (75 - 50) + 50}%`,
-  `${Math.random() * 15 + 0}%`,
-  '50%'
-]
-
-const topPositionsEnd = [
-  `900%`,
-  `${Math.random() * 5 + -5}%`,
-  `-1800%`,
-  `${Math.random() * 10 + -5}%`,
-  '50%'
-]
-const leftPositionsEnd = [
-  `${Math.random() * 10 + 0}%`,
-  `-600%`,
-  `${Math.random() * -25 + -40}%`,
-  `800%`,
-  '50%'
-]
+const words = ['Capturando cada emoción y detalle']
 
 const BigWordsScroll = () => {
   const containerRef = useRef(null)
@@ -60,7 +16,7 @@ const BigWordsScroll = () => {
           trigger: container,
           start: 'top top',
           end: 'bottom+=300% top',
-          scrub: true,
+          scrub: 3.5, // Hace que la animación sea más lenta
           pin: true
         }
       })
@@ -69,23 +25,12 @@ const BigWordsScroll = () => {
         wordRefs.current.forEach((word, index) => {
           const scaleEnd =
             index === wordRefs.current.length - 1 ? 200 : 5 + index * 2
-          const positionEnd =
-            index === wordRefs.current.length - 1
-              ? { top: '50%', left: '50%', x: '-50%', y: '-50%' }
-              : {
-                  x: leftPositionsEnd[index],
-                  y: topPositionsEnd[index]
-                }
-          tl.to(
-            word,
-            {
-              scale: scaleEnd,
-              opacity: 1,
-              ...positionEnd,
-              duration: 1
-            },
-            index * 0.5
-          )
+          tl.to(word, {
+            scale: scaleEnd,
+            opacity: 1,
+            duration: 4,
+            transition: 'power4.inOut'
+          })
 
           if (index === wordRefs.current.length - 1) {
             tl.to(container, {
@@ -111,7 +56,10 @@ const BigWordsScroll = () => {
         height: '100vh',
         position: 'relative',
         backgroundColor: '#d9d9d9',
-        overflow: 'hidden'
+        overflow: 'hidden',
+        display: 'flex', // Agrega flexbox para centrar
+        justifyContent: 'center', // Centra horizontalmente
+        alignItems: 'center' // Centra verticalmente
       }}>
       {words.map((word, index) => (
         <div
@@ -119,9 +67,7 @@ const BigWordsScroll = () => {
           ref={(el) => (wordRefs.current[index] = el)}
           style={{
             position: 'absolute',
-            top: topPositions[index],
-            left: leftPositions[index],
-            fontSize: fontSizes[index],
+            fontSize: '3rem', // Aumenta el tamaño para mayor visibilidad
             fontWeight: 'bold',
             color: '#0D0D0D',
             whiteSpace: 'nowrap',

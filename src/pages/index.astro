@@ -5,11 +5,12 @@ import ScrollEffect from '../components/ScrollEffect.astro'
 import MarqueeContainer from '../components/MarqueeContainer.astro'
 import { Globe } from '../components/MagicUI/Globe'
 import BigWordsScroll from '../components/React/BigWordsScroll'
+import Word from '../components/React/Word'
 ---
 
 <Layout title='Oriol Ortega | Home'>
   <main class=''>
-    <SectionContainer class='py-24'>
+    <SectionContainer class='pt-24'>
       <h2
         class='animate-on-scroll leading-none justify-center text-center font-semibold mb-6 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
         Historias que inspiran y conectan
@@ -58,7 +59,8 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
       </div>
     </SectionContainer>
 
-    <BigWordsScroll client:visible='react' />
+    <!-- <BigWordsScroll client:visible='react' /> -->
+    <Word client:visible='react' />
 
     <MarqueeContainer />
 
