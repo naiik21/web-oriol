@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/LayoutWorks.astro'
+import Banner from '../components/Works/Banner.astro'
+import FooterWorks from '../components/FooterWorks.astro'
+import SectionContainer from '../components/SectionContainer.astro'
+import General1 from '../components/Works/General1.astro'
+import General2 from '../components/Works/General2.astro'
+import Eventos6 from '../components/Works/Eventos6.astro'
+---
+
+<Layout title='Eventos y Festivales | Oriol Ortega' />
+<Banner
+  video='/portadas-trabajos/eventos-portada.mp4'
+  title='Eventos'
+  videoMobile=''
+/>
+<main class='pb-20'>
+  <SectionContainer class='py-24'>
+    <General1
+      title='Capturando Momentos Únicos en Cada Evento'
+      text='Ya sea una fiesta vibrante o un evento privado, cada momento especial merece ser inmortalizado. Me encargo de capturar la atmósfera y la energía de cada celebración.'
+      video='https://drive.google.com/file/d/1jSzwnb_YsAMRZMdVZHcQpp2EndgfzxW9/'
+    />
+  </SectionContainer>
+  <SectionContainer class='py-20'>
+    <General2
+      text='Mis vídeos para eventos capturan el espíritu de cada ocasión, desde la energía de una fiesta hasta los momentos íntimos de una reunión privada. Trabajo para reflejar la esencia del evento de forma natural y auténtica.'
+      video='./gifs-trabajos/gif-eventos.mp4'
+    />
+  </SectionContainer>
+  <SectionContainer
+    class='py-20 flex flex-col gap-8 justify-between xl:flex-row'>
+    <Eventos6
+      video1='https://drive.google.com/file/d/1P8ivv2juU9yPY3FwU7ZkIn5bEiY8Zczx/'
+      video2='https://drive.google.com/file/d/1x9Zsk3t4Z8CQVR1b9KOJnXOVV0v6Ck6g/'
+      video3='https://drive.google.com/file/d/1VAtvlg-8VepnrQ2G5ORM5bbobiQCC9ua/'
+      video4='https://drive.google.com/file/d/1p0OzFaFBGeNWrc1BGDsgKgEb4MPXiSET/'
+      video5='https://drive.google.com/file/d/1b5QvcmAhmFVq0XxSmd6s239xLbj88NzZ/'
+    />
+    <Eventos6
+      video1='https://drive.google.com/file/d/13zCYARs-OGpB74hg8pxuBohVtYYfyKYn/'
+      video2='https://drive.google.com/file/d/1YwYglK9Ccnyu9SpNtdGVSYFLDRfybMnx/'
+      video3='https://drive.google.com/file/d/1mImD6fJlCU4fjgSIpKV-yS7gx-bGsZ00/'
+      video4='https://drive.google.com/file/d/1OGsx-b8APryTuOWme1U4TGuAd-J1dx5O/'
+      video5='https://drive.google.com/file/d/1rZqmWEpl9eR2JJVXD_ucQmvPuKn_eBa_/'
+    />
+  </SectionContainer>
+</main>
