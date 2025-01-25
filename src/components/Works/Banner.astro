@@ -17,7 +17,8 @@ const { video, title, videoMobile } = Astro.props
     height='240'
     muted
     loop
-    autoplay>
+    autoplay
+    playsinline>
     <source src={video} type='video/mp4' />
   </video>
   <h1
