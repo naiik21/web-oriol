@@ -11,8 +11,8 @@ const words = [
 
 const fontSizes = [
   `${Math.random() * 2 + 3}rem`,
-  `${Math.random() * 4.5 + 5}rem`,
-  `${Math.random() * 1.5 + 2}rem`,
+  `${Math.random() * 2.5 + 3}rem`,
+  `${Math.random() * 1 + 1.5}rem`,
   `${Math.random() * 3 + 4}rem`,
   '1rem'
 ]
@@ -20,29 +20,29 @@ const fontSizes = [
 const topPositions = [
   `${Math.random() * 40 + 10}%`,
   `${Math.random() * 40 + 10}%`,
-  `${Math.random() * (90 - 60) + 60}%`,
+  `${Math.random() * (80 - 50) + 50}%`,
   `${Math.random() * (90 - 60) + 60}%`,
   '50%'
 ]
 const leftPositions = [
   `${Math.random() * 15 + 0}%`,
-  `${Math.random() * (90 - 60) + 60}%`,
-  `${Math.random() * (90 - 60) + 60}%`,
+  `${Math.random() * (80 - 50) + 50}%`,
+  `${Math.random() * (75 - 50) + 50}%`,
   `${Math.random() * 15 + 0}%`,
   '50%'
 ]
 
 const topPositionsEnd = [
-  `800%`,
+  `900%`,
   `${Math.random() * 5 + -5}%`,
   `-1800%`,
   `${Math.random() * 10 + -5}%`,
   '50%'
 ]
 const leftPositionsEnd = [
-  `${Math.random() * 5 + -5}%`,
+  `${Math.random() * 10 + 0}%`,
   `-600%`,
-  `${Math.random() * 5 + -5}%`,
+  `${Math.random() * -25 + -40}%`,
   `800%`,
   '50%'
 ]
@@ -84,7 +84,7 @@ const BigWordsScroll = () => {
               ...positionEnd,
               duration: 1
             },
-            index * 0.2
+            index * 0.5
           )
 
           if (index === wordRefs.current.length - 1) {

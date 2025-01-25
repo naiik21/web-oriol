@@ -42,7 +42,10 @@ const HeaderAnm = () => {
           height='240'
           muted
           loop
-          autoPlay>
+          autoPlay
+          playsinline
+          preload='auto'
+          controls='false'>
           <source src='./video-header.mp4' type='video/mp4' />
         </video>
       </div>
