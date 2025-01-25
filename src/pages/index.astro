@@ -72,52 +72,33 @@ import BigWordsScroll from '../components/React/BigWordsScroll'
 </Layout>
 
 <script>
-  // Detecta si es un dispositivo móvil
-  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
+  document.addEventListener('DOMContentLoaded', () => {
+    const videos = document.querySelectorAll('.gift-video')
 
-  if (isMobile) {
-    // Selecciona todos los videos en la página
-    const videos = document.querySelectorAll('video')
-
-    // Función para pausar todos los videos
-    const pauseAllVideos = () => {
-      videos.forEach((video) => video.pause())
-    }
-
-    // Función para encontrar el video más centrado en pantalla
-    const getMostCenteredVideo = () => {
-      let mostCenteredVideo = null
-      let smallestOffset = Infinity
-
+    if (window.innerWidth < 768) {
       videos.forEach((video) => {
-        const rect = video.getBoundingClientRect()
-        const videoCenter = rect.top + rect.height / 2
-        const screenCenter = window.innerHeight / 2
-        const offset = Math.abs(screenCenter - videoCenter)
-
-        if (offset < smallestOffset) {
-          smallestOffset = offset
-          mostCenteredVideo = video
-        }
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              video.play()
+            } else {
+              video.pause()
+            }
+          })
+        })
+        observer.observe(video)
       })
-
-      return mostCenteredVideo
+    } else {
+      videos.forEach((video) => {
+        video.addEventListener('mouseenter', () => {
+          videos.forEach((v) => {
+            if (v !== video) {
+              v.pause()
+            }
+          })
+          video.play()
+        })
+      })
     }
-
-    // Evento para manejar el scroll y reproducir el video adecuado
-    const handleScroll = () => {
-      const centeredVideo = getMostCenteredVideo()
-
-      if (centeredVideo) {
-        pauseAllVideos()
-        centeredVideo.play()
-      }
-    }
-
-    // Escucha el evento de scroll
-    window.addEventListener('scroll', handleScroll)
-
-    // Ejecuta la lógica al cargar la página
-    handleScroll()
-  }
+  })
 </script>
