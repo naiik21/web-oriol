@@ -1,0 +1,31 @@
+<header class='h-screen relative'>
+  <div class='video-container'>
+    <video
+      class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
+      width='320'
+      height='240'
+      muted
+      loop
+      autoplay
+      playsinline>
+      <source src='./video-header-mobile.mp4' type='video/mp4' />
+    </video>
+
+    <div
+      class='absolute'
+      style={{
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        filter: 'drop-shadow(0 0 10px rgba(0,0,0,.8))'
+      }}>
+      <img
+        src='./o-logo.png'
+        alt='Logo'
+        width='500px'
+        height='500px'
+        class='logo'
+      />
+    </div>
+  </div>
+</header>
