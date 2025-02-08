@@ -1,0 +1,26 @@
+---
+import NavbarMenu from './NavbarMenu.astro'
+
+interface Props {
+  foto: string
+  title: string
+  fotoMobile: string
+}
+const { foto, title, fotoMobile } = Astro.props
+---
+
+<header class='h-screen relative'>
+  <NavbarMenu />
+  <img
+    class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
+    width='320'
+    height='240'
+    src={foto}
+  />
+
+  <h1
+    class='absolute text-black w-max text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl'
+    style='bottom: 50%; left: 50%; transform: translate(-50%, 0%);'>
+    {title}
+  </h1>
+</header>

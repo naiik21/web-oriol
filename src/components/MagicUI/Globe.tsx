@@ -29,12 +29,12 @@ export function Globe() {
       phi: 0,
       theta: 0.3,
       dark: 1,
-      diffuse: 3,
-      mapSamples: 4000,
+      diffuse: 2,
+      mapSamples: 2000,
       mapBrightness: 1.2,
       baseColor: [1, 1, 1],
       markerColor: [251 / 255, 100 / 255, 21 / 255],
-      glowColor: [1.2, 1.2, 1.2],
+      glowColor: [1, 1, 1],
       markers: [
         { location: [-33.880813, 151.207923], size: 0.1 }, //Sídney
         { location: [-16.919923, 145.76142], size: 0.07 }, //Cairns
@@ -62,6 +62,7 @@ export function Globe() {
         state.height = width * 2
       }
     })
+
     setTimeout(() => (canvasRef.current.style.opacity = '1'))
     return () => {
       globe.destroy()

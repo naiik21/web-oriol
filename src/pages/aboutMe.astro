@@ -1,7 +1,64 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import BannerFoto from '../components/BannerFoto.astro'
+import SectionContainer from '../components/SectionContainer.astro'
 ---
 
 <Layout title='Quién Soy | Oriol Ortega'>
-  <main></main>
+  <BannerFoto foto='/sobre-mi-prueba.png' title='SOBRE MI' fotoMobile='' />
+  <main class='pb-20'>
+    <SectionContainer class='py-24'>
+      <h2
+        class='animate-on-scroll leading-none text-center justify-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
+        Detrás de la Cámara
+      </h2>
+
+      <div class='flex gap-8 flex-col-reverse md:flex-row'>
+        <p
+          class='animate-on-scroll text-[24px] xl:text-[30px] md:text-[26px] md:w-1/2'>
+          Soy Oriol Ortega, filmmaker apasionado por capturar momentos y contar
+          historias a través de cada frame. Desde que comencé mi carrera, he
+          tenido la oportunidad de trabajar en diversos sectores, desde eventos
+          sociales hasta proyectos comerciales y cinematográficos. Cada proyecto
+          es único, y mi objetivo es transmitir esa singularidad en cada video
+          que produzco.
+        </p>
+        <aside class='animate-on-scroll md:w-1/2'>
+          <img
+            class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
+            width='320'
+            height='240'
+            src='/o-logo.png'
+          />
+        </aside>
+      </div>
+      <div class='flex flex-col'>
+        <p
+          class='animate-on-scroll text-center text-[24px] xl:text-[30px] md:text-[26px]'>
+          Para mí, la producción audiovisual no solo es una cuestión de técnica,
+          sino de entender la visión de cada cliente. Ya sea un evento
+          deportivo, un comercial o un proyecto creativo, mi meta es capturar la
+          esencia de cada historia, poniendo en cada toma precisión y
+          creatividad.
+        </p>
+      </div>
+    </SectionContainer>
+    <SectionContainer class='py-24'>
+      <h2
+        class='animate-on-scroll leading-none text-center justify-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
+        Capacidades Técnicas y Equipo
+      </h2>
+
+      <div class='flex flex-col'>
+        <p
+          class='animate-on-scroll text-center text-[24px] xl:text-[30px] md:text-[26px]'>
+          Con el equipo adecuado, puedo lograr que cada proyecto alcance un
+          nivel de calidad y detalle que destaque. Trabajo con cámaras de cine y
+          de gama alta, micrófonos profesionales, drones, y un conjunto de
+          herramientas de edición para asegurarme de que cada detalle esté
+          capturado y resaltado.
+        </p>
+      </div>
+    </SectionContainer>
+  </main>
 </Layout>
