@@ -1,5 +1,6 @@
 ---
 import NavbarMenu from './NavbarMenu.astro'
+import { Image } from 'astro:assets'
 
 interface Props {
   foto: string
@@ -11,11 +12,12 @@ const { foto, title, fotoMobile } = Astro.props
 
 <header class='h-screen relative'>
   <NavbarMenu />
-  <img
-    class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
+  <Image
+    src={foto}
+    alt='Logo'
     width='320'
     height='240'
-    src={foto}
+    class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
   />
 
   <h1

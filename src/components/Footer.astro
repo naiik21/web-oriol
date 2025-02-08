@@ -1,6 +1,7 @@
 ---
 import LinkedIn from './Icons/LinkedIn.astro'
 import Mail from './Icons/Mail.astro'
+import { Image } from 'astro:assets'
 ---
 
 <div class='mx-5 md:mx-auto xl:max-w-[1600px] mb-10'>
@@ -13,13 +14,7 @@ import Mail from './Icons/Mail.astro'
 <footer class='mx-5 md:mx-auto xl:max-w-[1500px] mb-5 justify-center'>
   <div class='md:mx-5 flex flex-row justify-between sm:flex-row'>
     <a href='/'>
-      <img
-        src='./o-logo.png'
-        alt='Logo'
-        width='100px'
-        height='10px'
-        style='filter: drop-shadow(0 0 5px rgba(0,0,0,.8));'
-      />
+      <Image src='/o-logo.png' alt='Logo' width='100' height='100' />
     </a>
 
     <div class='flex items-center gap-2 md:gap-5 w-[350px] justify-center'>

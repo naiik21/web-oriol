@@ -1,10 +1,14 @@
+---
+import { Image } from 'astro:assets'
+---
+
 <!-- Main Navbar -->
 <div
   class='w-full mx-auto fixed top-0 bg-black/60 backdrop-blur-lg shadow-md transition-all z-30 flex justify-between items-center px-4'
   id='navbar'>
   <div class='w-[50px] h-[50px] flex items-center justify-center'>
     <a href='/'>
-      <img src='./o-logo.png' alt='Logo' />
+      <Image src='/o-logo.png' alt='Logo' width='50' height='50' />
     </a>
   </div>
   <button

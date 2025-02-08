@@ -1,3 +1,7 @@
+---
+import { Image } from 'astro:assets'
+---
+
 <header class='h-screen relative'>
   <div class='video-container'>
     <video
@@ -19,11 +23,11 @@
         transform: 'translate(-50%, -50%)',
         filter: 'drop-shadow(0 0 10px rgba(0,0,0,.8))'
       }}>
-      <img
-        src='./o-logo.png'
+      <Image
+        src='/o-logo.png'
         alt='Logo'
-        width='500px'
-        height='500px'
+        width='500'
+        height='500'
         class='logo'
       />
     </div>

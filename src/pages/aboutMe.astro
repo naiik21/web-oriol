@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import BannerFoto from '../components/BannerFoto.astro'
 import SectionContainer from '../components/SectionContainer.astro'
+import { Image } from 'astro:assets'
 ---
 
 <Layout title='Quién Soy | Oriol Ortega'>
@@ -24,11 +25,12 @@ import SectionContainer from '../components/SectionContainer.astro'
           que produzco.
         </p>
         <aside class='animate-on-scroll md:w-1/2'>
-          <img
-            class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
-            width='320'
-            height='240'
+          <Image
             src='/o-logo.png'
+            alt='Logo'
+            width='50'
+            height='50'
+            class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
           />
         </aside>
       </div>
