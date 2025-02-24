@@ -1,69 +1,52 @@
-import React, { useEffect, useRef } from 'react'
-import { gsap, ScrollTrigger } from '../../utilities/global'
+import React, { useLayoutEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const HeaderAnm = () => {
   const containerRef = useRef(null)
   const logoRef = useRef(null)
 
-  useEffect(() => {
-    const container = containerRef.current
-    const logo = logoRef.current
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: 'top top',
+          end: 'bottom+=0% top',
+          scrub: true,
+          pin: true
+        }
+      })
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: container,
-        start: 'top top',
-        end: 'bottom+=0% top',
-        scrub: true,
-        pin: true
-      }
-    })
+      tl.fromTo(
+        logoRef.current,
+        { y: '100%', opacity: 0 },
+        { y: '0%', opacity: 1, duration: 2 }
+      )
+    }, containerRef) // Contexto para encapsular GSAP y facilitar limpieza
 
-    // Animación del logo: empieza fuera de la pantalla por abajo y sube
-    tl.fromTo(
-      logo,
-      { y: '100%', opacity: 0 }, // Posición inicial: fuera de la pantalla (abajo) y transparente
-      { y: '0%', opacity: 1, duration: 2 } // Posición final: centrado y opaco
-    )
-
-    // Limpiar animaciones y ScrollTrigger al desmontar el componente
-    return () => {
-      tl.kill()
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
-    }
+    return () => ctx.revert() // Limpia animaciones al desmontar el componente
   }, [])
 
   return (
-    <header ref={containerRef} className='h-screen relative content-trigger'>
-      <div className='video-container'>
+    <header ref={containerRef} className='relative h-screen content-trigger'>
+      <div className='absolute inset-0'>
         <video
-          className='absolute top-0 left-0 object-cover w-screen h-screen'
-          width='320'
-          height='240'
+          className='w-full h-full object-cover'
           muted
           loop
           autoPlay
-          playsinline>
+          playsInline>
           <source src='./video-header.mp4' type='video/mp4' />
         </video>
       </div>
 
       <div
         ref={logoRef}
-        className='absolute'
-        style={{
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          filter: 'drop-shadow(0 0 10px rgba(0,0,0,.8))'
-        }}>
-        <img
-          src='./o-logo.png'
-          alt='Logo'
-          width='500px'
-          height='500px'
-          className=' logo'
-        />
+        className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg'>
+        <img src='./o-logo.png' alt='Logo' width='500' height='500' />
       </div>
     </header>
   )
