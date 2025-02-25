@@ -2,7 +2,11 @@
 // ContactForm.astro
 ---
 
-<form id='contactForm' action='/api/contact' method='POST' class='space-y-4'>
+<form
+  id='contactForm'
+  action='../utilities/sendEmail.js'
+  method='POST'
+  class='space-y-4'>
   <label for='name' class='block'>
     Nombre:
     <input
