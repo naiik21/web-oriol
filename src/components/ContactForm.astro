@@ -2,11 +2,7 @@
 // ContactForm.astro
 ---
 
-<form
-  id='contactForm'
-  action='/utilities/sendEmail.js'
-  method='POST'
-  class='space-y-4'>
+<form id='contactForm' action='/api/contact' method='POST' class='space-y-4'>
   <label for='name' class='block'>
     Nombre:
     <input
@@ -57,10 +53,10 @@
       })
 
       if (response.ok) {
-        document.getElementById('responseMessage').classList.remove('hidden')
+        alert('Mensaje enviado con éxito.')
         form.reset()
       } else {
-        alert('Error al enviar el mensaje.')
+        alert('Hubo un error al enviar el mensaje.')
       }
     })
 </script>
