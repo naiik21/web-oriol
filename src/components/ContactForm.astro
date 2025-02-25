@@ -2,20 +2,61 @@
 // ContactForm.astro
 ---
 
-<form action="/api/contact" method="POST" class="space-y-4">
-  <label for="name" class="block">
+<form id='contactForm' action='/api/contact' method='POST' class='space-y-4'>
+  <label for='name' class='block'>
     Nombre:
-    <input type="text" id="name" name="name" required class="w-full p-2 rounded border" />
+    <input
+      type='text'
+      id='name'
+      name='name'
+      required
+      class='w-full p-2 rounded border'
+    />
   </label>
-  <label for="email" class="block">
+  <label for='email' class='block'>
     Email:
-    <input type="email" id="email" name="email" required class="w-full p-2 rounded border" />
+    <input
+      type='email'
+      id='email'
+      name='email'
+      required
+      class='w-full p-2 rounded border'
+    />
   </label>
-  <label for="message" class="block">
+  <label for='message' class='block'>
     Mensaje:
-    <textarea id="message" name="message" required class="w-full p-2 rounded border"></textarea>
+    <textarea
+      id='message'
+      name='message'
+      required
+      class='w-full p-2 rounded border'></textarea>
   </label>
-  <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">
+  <button type='submit' class='bg-blue-500 text-white px-4 py-2 rounded'>
     Enviar
   </button>
 </form>
+<p id='responseMessage' class='text-green-600 hidden'>
+  ¡Mensaje enviado con éxito!
+</p>
+
+<script>
+  document
+    .getElementById('contactForm')
+    .addEventListener('submit', async (event) => {
+      event.preventDefault()
+      const form = event.target
+      const formData = new FormData(form)
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      })
+
+      if (response.ok) {
+        document.getElementById('responseMessage').classList.remove('hidden')
+        form.reset()
+      } else {
+        alert('Error al enviar el mensaje.')
+      }
+    })
+</script>

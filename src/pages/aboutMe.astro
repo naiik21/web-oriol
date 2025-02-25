@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro'
 import BannerFoto from '../components/BannerFoto.astro'
 import SectionContainer from '../components/SectionContainer.astro'
+import MaterialSlider from '../components/MaterialSlider.astro'
 import { Image } from 'astro:assets'
 ---
 
@@ -61,6 +62,10 @@ import { Image } from 'astro:assets'
           capturado y resaltado.
         </p>
       </div>
+    </SectionContainer>
+
+    <SectionContainer class='py-24'>
+      <MaterialSlider />
     </SectionContainer>
   </main>
 </Layout>
