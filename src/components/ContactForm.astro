@@ -1,62 +1,73 @@
 ---
-// ContactForm.astro
+const handleSubmit = async (event) => {
+  event.preventDefault()
+
+  const formData = new FormData(event.target)
+  const data = Object.fromEntries(formData.entries())
+
+  const statusElement = document.getElementById('form-status')
+  statusElement.textContent = 'Enviando...'
+
+  try {
+    const response = await fetch('/api/send-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+
+    if (response.ok) {
+      statusElement.textContent = 'Mensaje enviado con éxito ✅'
+      event.target.reset()
+    } else {
+      statusElement.textContent = 'Error al enviar el mensaje ❌'
+    }
+  } catch (error) {
+    statusElement.textContent = 'Error en la conexión ❌'
+  }
+}
 ---
 
-<form id='contactForm' action='/api/contact' method='POST' class='space-y-4'>
-  <label for='name' class='block'>
-    Nombre:
-    <input
-      type='text'
-      id='name'
-      name='name'
-      required
-      class='w-full p-2 rounded border'
-    />
-  </label>
-  <label for='email' class='block'>
-    Email:
-    <input
-      type='email'
-      id='email'
-      name='email'
-      required
-      class='w-full p-2 rounded border'
-    />
-  </label>
-  <label for='message' class='block'>
-    Mensaje:
-    <textarea
-      id='message'
-      name='message'
-      required
-      class='w-full p-2 rounded border'></textarea>
-  </label>
-  <button type='submit' class='bg-blue-500 text-white px-4 py-2 rounded'>
-    Enviar
-  </button>
+<form id='contact-form' class='mt-20 p-4 border rounded shadow-md max-w-md'>
+  <label for='name'>Nombre:</label>
+  <input type='text' id='name' name='name' required />
+
+  <label for='email'>Correo:</label>
+  <input type='email' id='email' name='email' required />
+
+  <label for='message'>Mensaje:</label>
+  <textarea id='message' name='message' required></textarea>
+
+  <button type='submit'>Enviar</button>
+  <p id='form-status'></p>
 </form>
-<p id='responseMessage' class='text-green-600 hidden'>
-  ¡Mensaje enviado con éxito!
-</p>
 
 <script>
   document
-    .getElementById('contactForm')
+    .getElementById('contact-form')
     .addEventListener('submit', async (event) => {
       event.preventDefault()
-      const form = event.target
-      const formData = new FormData(form)
 
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData
-      })
+      const formData = new FormData(event.target)
+      const data = Object.fromEntries(formData.entries())
 
-      if (response.ok) {
-        alert('Mensaje enviado con éxito.')
-        form.reset()
-      } else {
-        alert('Hubo un error al enviar el mensaje.')
+      const statusElement = document.getElementById('form-status')
+      statusElement.textContent = 'Enviando...'
+
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        })
+
+        if (response.ok) {
+          statusElement.textContent = 'Mensaje enviado con éxito ✅'
+          event.target.reset()
+        } else {
+          statusElement.textContent = 'Error al enviar el mensaje ❌'
+        }
+      } catch (error) {
+        statusElement.textContent = 'Error en la conexión ❌'
       }
     })
 </script>
