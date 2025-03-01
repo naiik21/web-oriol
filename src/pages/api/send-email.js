@@ -1,30 +1,50 @@
 import nodemailer from 'nodemailer'
 
-export async function POST(req) {
+export async function POST({ request }) {
   try {
-    const { name, email, message } = await req.json()
+    const formData = await request.formData()
+    const name = formData.get('name')
+    const email = formData.get('email')
+    const message = formData.get('message')
 
-    console.log(name, email, message)
+    if (!name || !email || !message) {
+      return new Response(
+        JSON.stringify({ error: 'Todos los campos son obligatorios' }),
+        {
+          status: 400
+        }
+      )
+    }
 
-    // Configurar el transporte de Nodemailer
+    // Configuración del transporte de Nodemailer
     const transporter = nodemailer.createTransport({
-      service: 'Gmail', // Puedes usar otro proveedor (Outlook, SMTP personal)
+      service: 'Gmail', // Puedes usar otro proveedor SMTP
       auth: {
         user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
+        pass: process.env.EMAIL_PASS // Usa variables de entorno para seguridad
       }
     })
 
+    // Enviar correo
     await transporter.sendMail({
-      from: `"Formulario Web" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      subject: 'Nuevo mensaje desde tu página web',
-      text: `Nombre: ${name}\nEmail: ${email}\nMensaje: ${message}`
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER, // Tu correo donde recibirás los mensajes
+      subject: `Nuevo mensaje de ${name}`,
+      text: message,
+      html: `<p><strong>Nombre:</strong> ${name}</p>
+             <p><strong>Correo:</strong> ${email}</p>
+             <p><strong>Mensaje:</strong> ${message}</p>`
     })
 
-    return new Response(JSON.stringify({ success: true }), { status: 200 })
+    return new Response(
+      JSON.stringify({ success: 'Mensaje enviado correctamente' }),
+      {
+        status: 200
+      }
+    )
   } catch (error) {
-    return new Response(JSON.stringify({ error: error.message }), {
+    console.error('Error enviando el correo:', error)
+    return new Response(JSON.stringify({ error: 'Error enviando el correo' }), {
       status: 500
     })
   }

@@ -1,7 +1,4 @@
-<form
-  id='contact-form'
-  class='mt-20 p-4 border rounded shadow-md max-w-md'
-  method='POST'>
+<form id='contact-form' class='mt-20 p-4 border rounded shadow-md max-w-md'>
   <label for='name'>Nombre:</label>
   <input type='text' id='name' name='name' required />
 
@@ -11,37 +8,81 @@
   <label for='message'>Mensaje:</label>
   <textarea id='message' name='message' required></textarea>
 
-  <button type='submit'>Enviar</button>
-  <p id='form-status'></p>
+  <button type='submit' id='submit'>Enviar</button>
 </form>
 
-<script>
-  const handleSubmit = async (event) => {
-    event.preventDefault()
+<!-- <script>
+  document
+    .getElementById('contact-form')
+    .addEventListener('submit', async function (event) {
+      event.preventDefault()
 
-    const formData = new FormData(event.target)
-    const data = Object.fromEntries(formData.entries())
+      const formData = new FormData(this)
 
-    const statusElement = document.getElementById('form-status')
-    statusElement.textContent = 'Enviando...'
-
-    try {
-      alert('Enviando...')
-      const response = await fetch('/api/send-email', {
+      const response = await fetch('../pages/api/send-email.js', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        body: formData
       })
 
+      const result = await response.json()
+
       if (response.ok) {
-        alert('Mensaje enviado con éxito ✅')
-        statusElement.textContent = 'Mensaje enviado con éxito ✅'
-        // event.target.reset()
+        alert(result.success)
+        this.reset()
       } else {
-        statusElement.textContent = 'Error al enviar el mensaje ❌'
+        alert(result.error)
       }
-    } catch (error) {
-      statusElement.textContent = 'Error en la conexión ❌'
+    })
+</script> -->
+
+<script type='text/javascript'>
+  import nodemailer from 'nodemailer'
+
+  const formData = await request.formData()
+  let name = document.querySelector('#name')
+  let email = document.querySelector('#email')
+  let message = document.querySelector('#message')
+  name = name.value
+  email = email.value
+  message = message.value
+
+  // if (!name || !email || !message) {
+  //   return new Response(
+  //     JSON.stringify({ error: 'Todos los campos son obligatorios' }),
+  //     {
+  //       status: 400
+  //     }
+  //   )
+  // }
+
+  let mail = process.env.EMAIL_USER
+  let pass = process.env.EMAIL_PASS
+
+  // Configuración del transporte de Nodemailer
+  const transporter = nodemailer.createTransport({
+    service: 'Gmail', // Puedes usar otro proveedor SMTP
+    auth: {
+      user: 'nicolas.ratia@gmail.com',
+      pass: 'D4v1dv1ll47' // Usa variables de entorno para seguridad
     }
+  })
+
+  // Enviar correo
+  let mailOptions = {
+    from: 'nicolas.ratia@gmail.com',
+    to: 'nicolas.ratia@gmail.com', // Tu correo donde recibirás los mensajes
+    subject: `Nuevo mensaje de ${name}`,
+    text: message,
+    html: `<p><strong>Nombre:</strong> ${name}</p>
+             <p><strong>Correo:</strong> ${email}</p>
+             <p><strong>Mensaje:</strong> ${message}</p>`
   }
+
+  // Send email
+  transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+      return console.log(`Error: ${error}`)
+    }
+    console.log(`Message Sent: ${info.response}`)
+  })
 </script>
