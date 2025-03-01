@@ -1,4 +1,8 @@
-<form id='contact-form' class='mt-20 p-4 border rounded shadow-md max-w-md'>
+<form
+  action='https://formsubmit.co/3f30ae5fbc2a4627a6886dc5bcc31371'
+  method='POST'
+  id='contact-form'
+  class='mt-20 p-4 border rounded shadow-md max-w-md'>
   <label for='name'>Nombre:</label>
   <input type='text' id='name' name='name' required />
 
@@ -10,35 +14,3 @@
 
   <button type='submit' id='submit'>Enviar</button>
 </form>
-
-<script type='text/javascript'>
-  document
-    .getElementById('contact-form')
-    .addEventListener('submit', async (e) => {
-      e.preventDefault()
-
-      const name = document.getElementById('name').value
-      const email = document.getElementById('email').value
-      const message = document.getElementById('message').value
-
-      try {
-        const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ name, email, message })
-        })
-
-        const result = await response.json()
-        if (response.ok) {
-          alert(result.message) // Mensaje de éxito
-        } else {
-          alert(result.message) // Mensaje de error
-        }
-      } catch (error) {
-        console.error('Error:', error)
-        alert('Error al enviar el correo')
-      }
-    })
-</script>
