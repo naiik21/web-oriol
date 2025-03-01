@@ -11,78 +11,34 @@
   <button type='submit' id='submit'>Enviar</button>
 </form>
 
-<!-- <script>
+<script type='text/javascript'>
   document
     .getElementById('contact-form')
-    .addEventListener('submit', async function (event) {
-      event.preventDefault()
+    .addEventListener('submit', async (e) => {
+      e.preventDefault()
 
-      const formData = new FormData(this)
+      const name = document.getElementById('name').value
+      const email = document.getElementById('email').value
+      const message = document.getElementById('message').value
 
-      const response = await fetch('../pages/api/send-email.js', {
-        method: 'POST',
-        body: formData
-      })
+      try {
+        const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ name, email, message })
+        })
 
-      const result = await response.json()
-
-      if (response.ok) {
-        alert(result.success)
-        this.reset()
-      } else {
-        alert(result.error)
+        const result = await response.json()
+        if (response.ok) {
+          alert(result.message) // Mensaje de éxito
+        } else {
+          alert(result.message) // Mensaje de error
+        }
+      } catch (error) {
+        console.error('Error:', error)
+        alert('Error al enviar el correo')
       }
     })
-</script> -->
-
-<script type='text/javascript'>
-  import nodemailer from 'nodemailer'
-
-  const formData = await request.formData()
-  let name = document.querySelector('#name')
-  let email = document.querySelector('#email')
-  let message = document.querySelector('#message')
-  name = name.value
-  email = email.value
-  message = message.value
-
-  // if (!name || !email || !message) {
-  //   return new Response(
-  //     JSON.stringify({ error: 'Todos los campos son obligatorios' }),
-  //     {
-  //       status: 400
-  //     }
-  //   )
-  // }
-
-  let mail = process.env.EMAIL_USER
-  let pass = process.env.EMAIL_PASS
-
-  // Configuración del transporte de Nodemailer
-  const transporter = nodemailer.createTransport({
-    service: 'Gmail', // Puedes usar otro proveedor SMTP
-    auth: {
-      user: 'nicolas.ratia@gmail.com',
-      pass: 'D4v1dv1ll47' // Usa variables de entorno para seguridad
-    }
-  })
-
-  // Enviar correo
-  let mailOptions = {
-    from: 'nicolas.ratia@gmail.com',
-    to: 'nicolas.ratia@gmail.com', // Tu correo donde recibirás los mensajes
-    subject: `Nuevo mensaje de ${name}`,
-    text: message,
-    html: `<p><strong>Nombre:</strong> ${name}</p>
-             <p><strong>Correo:</strong> ${email}</p>
-             <p><strong>Mensaje:</strong> ${message}</p>`
-  }
-
-  // Send email
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) {
-      return console.log(`Error: ${error}`)
-    }
-    console.log(`Message Sent: ${info.response}`)
-  })
 </script>

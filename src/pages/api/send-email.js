@@ -1,51 +1,38 @@
-import nodemailer from 'nodemailer'
-
-export async function POST({ request }) {
-  try {
-    const formData = await request.formData()
-    const name = formData.get('name')
-    const email = formData.get('email')
-    const message = formData.get('message')
-
-    if (!name || !email || !message) {
-      return new Response(
-        JSON.stringify({ error: 'Todos los campos son obligatorios' }),
-        {
-          status: 400
-        }
-      )
-    }
+export default async function handler(req, res) {
+  if (req.method === 'POST') {
+    const { name, email, message } = req.body
 
     // Configuración del transporte de Nodemailer
     const transporter = nodemailer.createTransport({
-      service: 'Gmail', // Puedes usar otro proveedor SMTP
+      service: 'Gmail',
       auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS // Usa variables de entorno para seguridad
+        user: process.env.EMAIL_USER, // Usa variables de entorno
+        pass: process.env.EMAIL_PASS // Usa variables de entorno
       }
     })
 
-    // Enviar correo
-    await transporter.sendMail({
+    // Opciones del correo
+    const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Tu correo donde recibirás los mensajes
+      to: process.env.EMAIL_USER, // Cambia esto por el correo donde quieres recibir los mensajes
       subject: `Nuevo mensaje de ${name}`,
       text: message,
-      html: `<p><strong>Nombre:</strong> ${name}</p>
-             <p><strong>Correo:</strong> ${email}</p>
-             <p><strong>Mensaje:</strong> ${message}</p>`
-    })
+      html: `
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Correo:</strong> ${email}</p>
+        <p><strong>Mensaje:</strong> ${message}</p>
+      `
+    }
 
-    return new Response(
-      JSON.stringify({ success: 'Mensaje enviado correctamente' }),
-      {
-        status: 200
-      }
-    )
-  } catch (error) {
-    console.error('Error enviando el correo:', error)
-    return new Response(JSON.stringify({ error: 'Error enviando el correo' }), {
-      status: 500
-    })
+    // Enviar el correo
+    try {
+      await transporter.sendMail(mailOptions)
+      res.status(200).json({ message: 'Correo enviado correctamente' })
+    } catch (error) {
+      console.error('Error al enviar el correo:', error)
+      res.status(500).json({ message: 'Error al enviar el correo' })
+    }
+  } else {
+    res.status(405).json({ message: 'Método no permitido' })
   }
 }
