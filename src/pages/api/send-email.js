@@ -4,6 +4,8 @@ export async function POST(req) {
   try {
     const { name, email, message } = await req.json()
 
+    console.log(name, email, message)
+
     // Configurar el transporte de Nodemailer
     const transporter = nodemailer.createTransport({
       service: 'Gmail', // Puedes usar otro proveedor (Outlook, SMTP personal)

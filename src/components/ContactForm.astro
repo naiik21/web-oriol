@@ -1,33 +1,7 @@
----
-const handleSubmit = async (event) => {
-  event.preventDefault()
-
-  const formData = new FormData(event.target)
-  const data = Object.fromEntries(formData.entries())
-
-  const statusElement = document.getElementById('form-status')
-  statusElement.textContent = 'Enviando...'
-
-  try {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    })
-
-    if (response.ok) {
-      statusElement.textContent = 'Mensaje enviado con éxito ✅'
-      event.target.reset()
-    } else {
-      statusElement.textContent = 'Error al enviar el mensaje ❌'
-    }
-  } catch (error) {
-    statusElement.textContent = 'Error en la conexión ❌'
-  }
-}
----
-
-<form id='contact-form' class='mt-20 p-4 border rounded shadow-md max-w-md'>
+<form
+  id='contact-form'
+  class='mt-20 p-4 border rounded shadow-md max-w-md'
+  method='POST'>
   <label for='name'>Nombre:</label>
   <input type='text' id='name' name='name' required />
 
@@ -42,32 +16,32 @@ const handleSubmit = async (event) => {
 </form>
 
 <script>
-  document
-    .getElementById('contact-form')
-    .addEventListener('submit', async (event) => {
-      event.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
 
-      const formData = new FormData(event.target)
-      const data = Object.fromEntries(formData.entries())
+    const formData = new FormData(event.target)
+    const data = Object.fromEntries(formData.entries())
 
-      const statusElement = document.getElementById('form-status')
-      statusElement.textContent = 'Enviando...'
+    const statusElement = document.getElementById('form-status')
+    statusElement.textContent = 'Enviando...'
 
-      try {
-        const response = await fetch('/pages/api/send-email', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data)
-        })
+    try {
+      alert('Enviando...')
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
 
-        if (response.ok) {
-          statusElement.textContent = 'Mensaje enviado con éxito ✅'
-          event.target.reset()
-        } else {
-          statusElement.textContent = 'Error al enviar el mensaje ❌'
-        }
-      } catch (error) {
-        statusElement.textContent = 'Error en la conexión ❌'
+      if (response.ok) {
+        alert('Mensaje enviado con éxito ✅')
+        statusElement.textContent = 'Mensaje enviado con éxito ✅'
+        // event.target.reset()
+      } else {
+        statusElement.textContent = 'Error al enviar el mensaje ❌'
       }
-    })
+    } catch (error) {
+      statusElement.textContent = 'Error en la conexión ❌'
+    }
+  }
 </script>
