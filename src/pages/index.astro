@@ -5,8 +5,7 @@ import ScrollEffect from '../components/ScrollEffect.astro'
 import ScrollEffectInvertido from '../components/ScrollEffectInvertido.astro'
 import MarqueeContainer from '../components/MarqueeContainer.astro'
 import { Globe } from '../components/MagicUI/Globe'
-import BigWordsScroll from '../components/React/BigWordsScroll'
-import Word from '../components/React/Word'
+import { GitHubGlobe } from '../components/React/GitHubGlobe'
 ---
 
 <Layout title='Oriol Ortega | Home'>
@@ -67,7 +66,8 @@ import Word from '../components/React/Word'
 
     <MarqueeContainer />
 
-    <Globe client:load />
+    <!-- <Globe client:load /> -->
+    <GitHubGlobe client:load />
 
     <ScrollEffect
       text='¿Listo para crear algo increíble?'
