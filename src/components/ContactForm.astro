@@ -1,17 +1,50 @@
 <form
   action='https://formsubmit.co/3f30ae5fbc2a4627a6886dc5bcc31371'
   method='POST'
-  class='mt-20 p-4 border rounded shadow-md max-w-md'>
-  <label for='name'>Nombre:</label>
-  <input type='text' name='name' required />
+  class='flex flex-col mt-32 p-6 border backdrop-blur-lg rounded-2xl shadow-xl max-w-lg mx-5 md:mx-auto bg-black/60 text-[#0d0d0d]'>
+  <h2
+    class='text-[#d9d9d9] text-2xl font-semibold text-center uppercase tracking-wider'>
+    Contáctame
+  </h2>
 
-  <label for='email'>Correo:</label>
-  <input type='email' name='email' required />
+  <label for='name' class='mt-5 text-[#d9d9d9]'>Nombre:</label>
+  <input
+    type='text'
+    name='name'
+    required
+    class='mt-2 p-2 bg-[#d9d9d9] border-[#0d0d0d] rounded focus:outline-none focus:ring-2 focus:ring-[#0d0d0d]'
+  />
 
-  <label for='message'>Mensaje:</label>
-  <textarea name='message' required></textarea>
+  <label for='email' class='mt-5 text-[#d9d9d9]'>Email:</label>
+  <input
+    type='email'
+    name='email'
+    required
+    class='p-2 bg-[#d9d9d9] border-[#0d0d0d] rounded focus:outline-none focus:ring-2 focus:ring-[#0d0d0d]'
+  />
 
-  <button type='submit' id='submit'>Enviar</button>
+  <label for='phone' class='mt-5 text-[#d9d9d9]'>Teléfono:</label>
+  <input
+    type='tel'
+    name='phone'
+    required
+    pattern='[0-9]{10}'
+    class='mt-2 p-2 bg-[#d9d9d9] border-[#0d0d0d] rounded focus:outline-none focus:ring-2 focus:ring-[#0d0d0d]'
+  />
+
+  <label for='message' class='mt-5 text-[#d9d9d9]'>Mensaje:</label>
+  <textarea
+    name='message'
+    required
+    class='mt-2 p-2 bg-[#d9d9d9] border-[#0d0d0d] rounded focus:outline-none focus:ring-2 focus:ring-[#0d0d0d]'
+  ></textarea>
+
+  <button
+    type='submit'
+    id='submit'
+    class='w-1/2 m-auto mt-12 bg-[#d9d9d9] text-[#0d0d0d] font-semibold py-2 rounded-lg hover:bg-gray-300 transition-all duration-300'
+    >Enviar</button
+  >
 
   <input type='hidden' name='_next' value='https://oriolortega.com/thanks' />
   <input type='hidden' name='_captcha' value='false' />
