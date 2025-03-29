@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string
+  text: string
+  src: string
+}
+const { title, text, src } = Astro.props
+---
+
+<video
+  autoplay
+  loop
+  muted
+  playsinline
+  class='absolute inset-0 w-full h-full object-cover z-[-1] rounded-2xl'>
+  <source src=`${src}` type='video/webm' />
+  Tu navegador no soporta videos.
+</video>
+
+<!-- Contenido -->
+<div class='relative z-10 pt-10 bg-black bg-opacity-50 text-white rounded-2xl'>
+  <h3
+    class='whitespace-pre-line px-2 md:px-4 lg:px-10 xl:px-24 font-bold text-lg md:text-xl lg:text-2xl xl:text-2xl'>
+    {title}
+  </h3>
+  <p
+    class='pt-4 lg:pt-8 px-4 md:px-6 lg:px-8 xl:px-16 text-sm md:text-base lg:text-lg xl:text-xl'>
+    {text}
+  </p>
+</div>

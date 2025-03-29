@@ -5,12 +5,12 @@ import Banner from '../components/Works/Banner.astro'
 ---
 
 <Layout title='Contacto | Oriol Ortega'>
+  <Banner
+    video='./video-header.mp4'
+    title=''
+    videoMobile='./video-header-mobile.mp4'
+  />
   <main>
-    <Banner
-      video='./video-header.mp4'
-      title=''
-      videoMobile='./video-header-mobile.mp4'
-    />
     <div class='absolute top-0 left-0 w-full h-screen z-10'>
       <ContactForm />
       <div class='mt-10 mx-5 md:mx-auto xl:max-w-[1600px] mb-10'>

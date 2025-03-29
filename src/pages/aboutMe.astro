@@ -7,43 +7,40 @@ import { Image } from 'astro:assets'
 ---
 
 <Layout title='Quién Soy | Oriol Ortega'>
-  <BannerFoto foto='/sobre-mi-prueba.png' title='SOBRE MI' fotoMobile='' />
+  <BannerFoto
+    foto='/sobre-mi/foto-portada-horizontal.webp'
+    title='SOBRE MI'
+    fotoMobile='/sobre-mi/foto-portada-vertical.webp'
+  />
   <main class='pb-20'>
-    <SectionContainer class='py-24'>
+    <SectionContainer class='pt-24'>
       <h2
-        class='animate-on-scroll leading-none text-center justify-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
+        class='animate-on-scroll leading-none md:text-center justify-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
         Detrás de la Cámara
       </h2>
 
       <div class='flex gap-8 flex-col-reverse md:flex-row'>
-        <p
-          class='animate-on-scroll text-[24px] xl:text-[30px] md:text-[26px] md:w-1/2'>
+        <p class='animate-on-scroll text-xl md:w-1/2'>
           Soy Oriol Ortega, filmmaker apasionado por capturar momentos y contar
           historias a través de cada frame. Desde que comencé mi carrera, he
           tenido la oportunidad de trabajar en diversos sectores, desde eventos
           sociales hasta proyectos comerciales y cinematográficos. Cada proyecto
           es único, y mi objetivo es transmitir esa singularidad en cada video
-          que produzco.
+          que produzco. <br /><br />Para mí, la producción audiovisual no solo
+          es una cuestión de técnica, sino de entender la visión de cada
+          cliente. Ya sea un evento deportivo, un comercial o un proyecto
+          creativo, mi meta es capturar la esencia de cada historia, poniendo en
+          cada toma precisión y creatividad.
         </p>
-        <aside class='animate-on-scroll md:w-1/2'>
+        <aside class='animate-on-scroll lg:flex lg:justify-center md:w-1/2'>
           <Image
             src='/o-logo.png'
             alt='Logo'
-            width='50'
-            height='50'
-            class='absolute top-0 left-0 object-cover w-screen h-screen contrast-75'
+            width='500'
+            height='500'
+            class='top-0 left-0 contrast-75 xl:w-[350px]'
           />
         </aside>
-      </div>
-      <div class='flex flex-col'>
-        <p
-          class='animate-on-scroll text-center text-[24px] xl:text-[30px] md:text-[26px]'>
-          Para mí, la producción audiovisual no solo es una cuestión de técnica,
-          sino de entender la visión de cada cliente. Ya sea un evento
-          deportivo, un comercial o un proyecto creativo, mi meta es capturar la
-          esencia de cada historia, poniendo en cada toma precisión y
-          creatividad.
-        </p>
       </div>
     </SectionContainer>
     <SectionContainer class='py-24'>
@@ -53,8 +50,7 @@ import { Image } from 'astro:assets'
       </h2>
 
       <div class='flex flex-col'>
-        <p
-          class='animate-on-scroll text-center text-[24px] xl:text-[30px] md:text-[26px]'>
+        <p class='animate-on-scroll md:text-center text-xl'>
           Con el equipo adecuado, puedo lograr que cada proyecto alcance un
           nivel de calidad y detalle que destaque. Trabajo con cámaras de cine y
           de gama alta, micrófonos profesionales, drones, y un conjunto de
@@ -64,8 +60,6 @@ import { Image } from 'astro:assets'
       </div>
     </SectionContainer>
 
-    <SectionContainer class='py-24'>
-      <MaterialSlider />
-    </SectionContainer>
+    <MaterialSlider />
   </main>
 </Layout>

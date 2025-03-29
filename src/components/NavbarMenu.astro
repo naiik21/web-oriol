@@ -27,6 +27,7 @@ import { Image } from 'astro:assets'
     </li>
     <li class='mx-4 w-[80px] flex justify-center'>
       <a
+        href='/aboutMe'
         class='text-gray-400 text-lg font-bold hover:text-gray-300 transition-colors'
         >Sobre Mi</a
       >
@@ -51,7 +52,7 @@ import { Image } from 'astro:assets'
 <!-- Mobile Menu Component -->
 <div
   id='mobile-menu'
-  class='fixed top-0 left-0 w-full h-full bg-black/80 text-white z-[1] flex flex-col items-center justify-center transition-all transform -translate-x-full'>
+  class='fixed top-0 left-0 w-full h-full bg-[#0d0d0d]/[99%] text-white z-[999] flex flex-col items-center justify-center transition-all transform -translate-x-full'>
   <button
     id='close-mobile-menu'
     class='absolute top-4 right-4 text-white text-2xl'>X</button
@@ -61,7 +62,9 @@ import { Image } from 'astro:assets'
       <a href='/' class='text-lg font-bold hover:text-gray-300'>Inicio</a>
     </li>
     <li class='my-4'>
-      <a href='/' class='text-lg font-bold hover:text-gray-300'>Sobre Mi</a>
+      <a href='/aboutMe' class='text-lg font-bold hover:text-gray-300'
+        >Sobre Mi</a
+      >
     </li>
     <li class='my-4'>
       <a href='/works' class='text-lg font-bold hover:text-gray-300'>Trabajos</a
@@ -84,6 +87,7 @@ import { Image } from 'astro:assets'
 
   // Función para abrir el menú móvil
   const openMobileMenu = () => {
+    console.log('abrir menu')
     mobileMenu.style.transform = 'translateX(0)'
   }
 

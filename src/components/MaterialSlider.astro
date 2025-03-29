@@ -1,102 +1,57 @@
-<style>
-  swiper-container {
-    width: 100%;
-    height: 100%;
-  }
+---
+import SwiperSlider from './SwiperSlider.astro'
 
-  swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const SLIDER = [
+  {
+    title: 'Cámaras de Cine \n(Sony FX3 y Sony A7III)',
+    text: 'Con la Sony FX3 y la Sony A7III, puedo grabar en 4K con una calidad cinematográfica y un excelente manejo de la luz, ideal para capturar imágenes precisas tanto en interiores con poca luz como en exteriores.',
+    src: '/sobre-mi/camara.webm'
+  },
+  {
+    title: 'Audio de Alta Calidad \n(Micrófonos Rode)',
+    text: 'Con el equipo Rode (Videomic NTC y Wireless Go II), el audio es nítido y adaptable. Los micrófonos inalámbricos facilitan la captura de sonido en eventos dinámicos o entrevistas, mientras que el Rode NTG permite una grabación de alta precisión.',
+    src: '/sobre-mi/sonido.webm'
+  },
+  {
+    title: 'Estabilización y Movilidad (Estabilizador e Insta 360 X3)',
+    text: 'Para tomas en movimiento fluidas, utilizo estabilizadores que permiten transiciones impecables. La Insta 360 X3 añade una perspectiva inmersiva, ideal para grabaciones creativas y dinámicas en 360 grados.',
+    src: '/sobre-mi/estabilizador.webm'
+  },
+  {
+    title: 'Iluminación Controlada',
+    text: ' Con dos focos compactos de video y flash para fotografía, puedo ajustar la iluminación para crear el ambiente perfecto en cada toma, desde tonos naturales hasta escenas más dramatizadas.',
+    src: '/sobre-mi/iluminacion.webm'
+  },
+  {
+    title: 'Objetivos \n(50 mm, 85 mm, 24-70 mm, \n70-200 mm, 17-28 mm)',
+    text: 'La variedad de objetivos permite un rango amplio de perspectivas. Con estas ópticas, puedo capturar detalles, realizar acercamientos y lograr profundidad de campo.',
+    src: '/sobre-mi/objetivos.webm'
+  },
+  {
+    title: 'Dron DJI Mini 3 Pro',
+    text: 'Para tomas aéreas de alta calidad en 4K, el dron DJI Mini 3 Pro aporta un ángulo extra, ideal para capturar eventos o localizaciones desde una perspectiva impactante y creativa.',
+    src: '/sobre-mi/drone.webm'
+  },
+  {
+    title: 'Edición y Postproducción',
+    text: 'La edición es donde cada proyecto cobra vida. Trabajo en un sistema Apple con Studio Display y manejo toda la suite de Adobe (Premiere, After Effects, Photoshop, entre otros) para añadir un toque profesional a cada proyecto.',
+    src: '/sobre-mi/edicion.webm'
   }
+]
+---
 
-  swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  swiper-slide {
-    width: 60%;
-  }
-</style>
 <swiper-container
-  class='mySwiper'
+  class='swiper w-full h-full'
   slides-per-view='auto'
   centered-slides='true'
-  space-between='30'>
-  <swiper-slide>
-    <h3>Cámaras de Cine (Sony FX3 y Sony A7III)</h3>
-    <p>
-      Con la Sony FX3 y la Sony A7III, puedo grabar en 4K con una calidad
-      cinematográfica y un excelente manejo de la luz, ideal para capturar
-      imágenes precisas tanto en interiores con poca luz como en exteriores.
-      Gracias a los perfiles de color avanzados de estas cámaras, cada proyecto
-      tiene una estética profesional que permite llevar la postproducción a otro
-      nivel
-    </p>
-  </swiper-slide>
-  <swiper-slide>
-    <h3>Audio de Alta Calidad (Micrófonos Rode)</h3>
-    <p>
-      Con el equipo Rode (Videomic NTC y Wireless Go II), el audio es nítido y
-      adaptable. Los micrófonos inalámbricos facilitan la captura de sonido en
-      eventos dinámicos o entrevistas, mientras que el Rode NTG permite una
-      grabación de alta precisión.
-    </p>
-  </swiper-slide>
-  <swiper-slide>
-    <h3>Estabilización y Movilidad (Estabilizador e Insta 360 X3)</h3>
-    <p>
-      Para tomas en movimiento fluidas, utilizo estabilizadores que permiten
-      transiciones impecables. La Insta 360 X3 añade una perspectiva inmersiva,
-      ideal para grabaciones creativas y dinámicas en 360 grados, logrando
-      ángulos únicos.
-    </p>
-  </swiper-slide>
-  <swiper-slide>
-    <h3>Iluminación Controlada</h3>
-    <p>
-      Con dos focos compactos de video y flash para fotografía, puedo ajustar la
-      iluminación para crear el ambiente perfecto en cada toma, desde tonos
-      naturales hasta escenas más dramatizadas
-    </p>
-  </swiper-slide>
-  <swiper-slide>
-    <h3>
-      Objetivos para Cualquier Necesidad (50 mm, 85 mm, 24-70 mm, 70-200 mm,
-      17-28 mm)
-    </h3>
-    <p>
-      La variedad de objetivos permite un rango amplio de perspectivas,
-      adaptándome desde primeros planos hasta tomas amplias. Con estas ópticas,
-      puedo capturar detalles, realizar acercamientos y lograr profundidad de
-      campo, sumando versatilidad y un acabado cinematográfico
-    </p>
-  </swiper-slide>
-  <swiper-slide>
-    <h3>Dron DJI Mini 3 Pro</h3>
-    <p>
-      Para tomas aéreas de alta calidad en 4K, el dron DJI Mini 3 Pro aporta un
-      ángulo extra, ideal para capturar eventos o localizaciones desde una
-      perspectiva impactante y creativa
-    </p>
-  </swiper-slide>
-  <swiper-slide>
-    <h3>Edición y Postproducción</h3>
-    <p>
-      La edición es donde cada proyecto cobra vida. Trabajo en un sistema Apple
-      con Studio Display y manejo toda la suite de Adobe (Premiere, After
-      Effects, Photoshop, entre otros) para añadir un toque profesional a cada
-      proyecto. Con estas herramientas, no solo organizo las tomas, sino que
-      ajusto colores, añado efectos y optimizo el sonido para garantizar que el
-      resultado final esté pulido y refleje la calidad deseada
-    </p>
-  </swiper-slide>
+  loop='true'>
+  {
+    SLIDER.map((work) => (
+      <swiper-slide class='flex text-center mr-[25px] md:mr-[50px] lg:mr-[75px] xl:mr-[150px] ml-[25px] md:ml-[50px] lg:ml-[75px] xl:ml-[150px] w-[300px] h-[400px] md:w-[400px] md:h-[500px] lg:w-[500px] lg:h-[600px] xl:w-[600px] xl:h-[700px]'>
+        <SwiperSlider {...work} />
+      </swiper-slide>
+    ))
+  }
 </swiper-container>
 
 <script
