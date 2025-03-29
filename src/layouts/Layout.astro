@@ -1,4 +1,7 @@
 ---
+import Analytics from '@vercel/analytics/astro'
+import SpeedInsights from '@vercel/speed-insights/astro'
+
 interface Props {
   title: string
 }
@@ -30,6 +33,8 @@ const { pathname } = Astro.url
       href='https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'
       rel='stylesheet'
     />
+    <Analytics />
+    <SpeedInsights />
   </head>
   <body>
     {
@@ -97,8 +102,6 @@ const { pathname } = Astro.url
 </style>
 
 <script>
-  import SpeedInsights from '@vercel/speed-insights/astro'
-  import Analytics from '@vercel/analytics/astro'
   // archivo: scroll-animations.js
   document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.animate-on-scroll')
