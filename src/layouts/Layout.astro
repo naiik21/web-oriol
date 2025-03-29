@@ -97,6 +97,8 @@ const { pathname } = Astro.url
 </style>
 
 <script>
+  import SpeedInsights from '@vercel/speed-insights/astro'
+  import Analytics from '@vercel/analytics/astro'
   // archivo: scroll-animations.js
   document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.animate-on-scroll')
