@@ -39,14 +39,14 @@ const HeaderAnm = () => {
           loop
           autoPlay
           playsInline>
-          <source src='./video-header.mp4' type='video/mp4' />
+          <source src='./video-header.webm' type='video/webm' />
         </video>
       </div>
 
       <div
         ref={logoRef}
         className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 drop-shadow-lg'>
-        <img src='./o-logo.png' alt='Logo' width='500' height='500' />
+        <img src='./o-logo.webp' alt='Logo' width='500' height='500' />
       </div>
     </header>
   )
