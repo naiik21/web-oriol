@@ -3,24 +3,18 @@ import Layout from '../layouts/Layout.astro'
 import BannerFoto from '../components/BannerFoto.astro'
 import SectionContainer from '../components/SectionContainer.astro'
 import MaterialSlider from '../components/MaterialSlider.astro'
-import { Image } from 'astro:assets'
 ---
 
 <Layout title='Quién Soy | Oriol Ortega'>
   <BannerFoto
     foto='/sobre-mi/foto-portada-horizontal.webp'
-    title='SOBRE MI'
+    title='Sobre mí'
     fotoMobile='/sobre-mi/foto-portada-vertical.webp'
   />
   <main class='pb-20'>
     <SectionContainer class='pt-24'>
-      <h2
-        class='animate-on-scroll leading-none md:text-center justify-center font-semibold mb-12 flex gap-x-2 items-center w text-[38px] xl:text-[84px] lg:text-[80px] md:text-[74px] sm:text-[58px]'>
-        Detrás de la Cámara
-      </h2>
-
       <div class='flex gap-8 flex-col-reverse md:flex-row'>
-        <p class='animate-on-scroll text-xl md:w-1/2'>
+        <p class='animate-on-scroll text-xl md:text-center'>
           Soy Oriol Ortega, filmmaker apasionado por capturar momentos y contar
           historias a través de cada frame. Desde que comencé mi carrera, he
           tenido la oportunidad de trabajar en diversos sectores, desde eventos
@@ -32,15 +26,6 @@ import { Image } from 'astro:assets'
           creativo, mi meta es capturar la esencia de cada historia, poniendo en
           cada toma precisión y creatividad.
         </p>
-        <aside class='animate-on-scroll lg:flex lg:justify-center md:w-1/2'>
-          <Image
-            src='/o-logo.webp'
-            alt='Logo'
-            width='500'
-            height='500'
-            class='top-0 left-0 contrast-75 xl:w-[350px]'
-          />
-        </aside>
       </div>
     </SectionContainer>
     <SectionContainer class='py-24'>

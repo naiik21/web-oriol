@@ -4,8 +4,6 @@ import SectionContainer from '../components/SectionContainer.astro'
 import ScrollEffect from '../components/ScrollEffect.astro'
 import ScrollEffectInvertido from '../components/ScrollEffectInvertido.astro'
 import MarqueeContainer from '../components/MarqueeContainer.astro'
-import { Globe } from '../components/MagicUI/Globe'
-import { GitHubGlobe } from '../components/React/GitHubGlobe'
 ---
 
 <Layout title='Oriol Ortega | Home'>
@@ -60,14 +58,11 @@ import { GitHubGlobe } from '../components/React/GitHubGlobe'
     </SectionContainer>
 
     <ScrollEffectInvertido
-      text='Capturando cada emoción y cada detalles'
+      text='Capturando cada emoción y cada detalle'
       class='bg-[#d9d9d9]'
     />
 
     <MarqueeContainer />
-
-    <!-- <Globe client:load /> -->
-    <!-- <GitHubGlobe client:load /> -->
 
     <ScrollEffect
       text='¿Listo para crear algo increíble?'
