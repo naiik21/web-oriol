@@ -11,93 +11,35 @@ const { video1, video2, video3, video4, video5 } = Astro.props
 
 <div class='flex flex-col justify-center gap-8 md:w-[100%]'>
   <div class='w-full flex flex-col gap-8 md:flex-row'>
-    <div
-      id='vid1'
-      class='video-placeholder animate-on-scroll w-full aspect-[1/2] visible'
-      data-video={video1}>
-      <img src='/sobre-mi/foto-portada-vertical.webp' alt='Preview 1' />
-      <div class='play-button'>▶</div>
-    </div>
+    <iframe
+      class='animate-on-scroll w-full aspect-[2/3] md:aspect-[1/2]'
+      src={video1 + 'preview'}
+      allowfullscreen></iframe>
 
-    <div
-      id='vid2'
-      class='video-placeholder animate-on-scroll w-full aspect-[1/2] visible'
-      data-video={video2}>
-      <img src='/sobre-mi/foto-portada-vertical.webp' alt='Preview 2' />
-      <div class='play-button'>▶</div>
-    </div>
+    <iframe
+      class='animate-on-scroll w-full aspect-[2/3] md:aspect-[1/2]'
+      src={video2 + 'preview'}
+      allow='autoplay'
+      allowfullscreen></iframe>
   </div>
 
   <iframe
     class='animate-on-scroll w-full h-[300px] md:h-[600px]'
-    src={video3 + 'preview?autoplay=1'}
-    frameborder='0'
-    allow='autoplay; encrypted-media'
+    src={video3 + 'preview'}
+    allow='autoplay'
     allowfullscreen></iframe>
 
   <div class='w-full flex flex-col gap-8 md:flex-row'>
-    <div
-      id='vid4'
-      class='video-placeholder animate-on-scroll w-full aspect-[1/2] visible'
-      data-video={video3}>
-      <img src='/sobre-mi/foto-portada-vertical.webp' alt='Preview 4' />
-      <div class='play-button'>▶</div>
-    </div>
+    <iframe
+      class='animate-on-scroll w-full aspect-[2/3] md:aspect-[1/2]'
+      src={video4 + 'preview'}
+      allow='autoplay'
+      allowfullscreen></iframe>
 
-    <div
-      id='vid5'
-      class='video-placeholder animate-on-scroll w-full aspect-[1/2] visible'
-      data-video={video4}>
-      <img
-        src='/sobre-mi/foto-portada-vertical.webp'
-        height='100%'
-        alt='Preview 5'
-      />
-      <div class='play-button'>▶</div>
-    </div>
+    <iframe
+      class='animate-on-scroll w-full aspect-[2/3] md:aspect-[1/2]'
+      src={video5 + 'preview'}
+      allow='autoplay'
+      allowfullscreen></iframe>
   </div>
 </div>
-
-<script is:browser>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.video-placeholder').forEach((container) => {
-      container.addEventListener('click', () => {
-        const baseUrl = container.getAttribute('data-video')
-
-        // Añadir autoplay correctamente dependiendo de si ya hay parámetros
-        const autoplayUrl = baseUrl.includes('?')
-          ? `${baseUrl}preview&autoplay=1`
-          : `${baseUrl}preview?autoplay=1`
-
-        container.innerHTML = `
-          <iframe class="w-full aspect-[1/2]" src="${autoplayUrl}" allow="autoplay" allowfullscreen></iframe>
-        `
-      })
-    })
-  })
-</script>
-
-<style>
-  .video-placeholder {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-  }
-  .video-placeholder img {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  .video-placeholder .play-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 3rem;
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
-    padding: 0.5rem 1rem;
-    color: white;
-    pointer-events: none;
-  }
-</style>
