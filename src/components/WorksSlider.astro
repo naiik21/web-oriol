@@ -4,15 +4,10 @@ const currentPath = Astro.url.pathname
 
 const WORKSTYPES = [
   {
-    title: 'Corporativos y Marcas',
-    source: '/portadas-trabajos/corporativo-portada.webm',
-    style: 'ml-[15%] md:ml-[25%]',
-    src: '/corporativos'
-  },
-  {
-    title: 'Restauración',
-    source: '/portadas-trabajos/restaurantes-portada.webm',
-    src: '/restaurantes'
+    title: 'Eventos',
+    source: '/portadas-trabajos/eventos-portada.webm',
+    style: 'ml-[30%] md:ml-[25%]',
+    src: '/eventos'
   },
   {
     title: 'Bodas',
@@ -20,30 +15,35 @@ const WORKSTYPES = [
     src: '/bodas'
   },
   {
-    title: 'Eventos',
-    source: '/portadas-trabajos/eventos-portada.webm',
-    src: '/eventos'
+    title: 'Moda',
+    source: '/portadas-trabajos/moda-portada.webm',
+    src: '/moda'
+  },
+  {
+    title: 'Restauración',
+    source: '/portadas-trabajos/restaurantes-portada.webm',
+    src: '/restaurantes'
   },
   {
     title: 'Deportes',
     source: '/portadas-trabajos/deportes-portada.webm',
     src: '/deportes'
   },
+  // {
+  //   title: 'Educacion',
+  //   source: '/portadas-trabajos/eduacion-portada.webm',
+  //   src: '/educacion'
+  // },
   {
-    title: 'Moda',
-    source: '/portadas-trabajos/moda-portada.webm',
-    src: '/moda'
+    title: 'Corporativos y Marcas',
+    source: '/portadas-trabajos/corporativo-portada.webm',
+    src: '/corporativos'
   },
   {
     title: 'Alimentación',
     source: '/portadas-trabajos/alimentacion-portada.webm',
     src: '/alimentacion'
   },
-  // {
-  //   title: 'Educacion',
-  //   source: '/portadas-trabajos/eduacion-portada.webm',
-  //   src: '/educacion'
-  // },
   {
     title: 'Cortometraje',
     source: '/portadas-trabajos/cortometraje-portada.webm',
@@ -57,7 +57,7 @@ const WORKSTYPES = [
   <ul
     id='scroll-container'
     style='scroll-behavior: smooth;  overflow-scrolling: touch;  -webkit-overflow-scrolling: touch;'
-    class='list-none flex w-full h-full overflow-x-hidden whitespace-nowrap gap-20'>
+    class='list-none flex w-full h-full overflow-x-hidden whitespace-nowrap gap-24'>
     {
       WORKSTYPES.map((work) => (
         <li
