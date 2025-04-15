@@ -8,13 +8,12 @@ const { title, text, src } = Astro.props
 ---
 
 <video
+  src=`${src}`
   autoplay
   loop
   muted
   playsinline
   class='absolute inset-0 w-full h-full object-cover z-[-1] rounded-2xl'>
-  <source src=`${src}` type='video/webm' />
-  Tu navegador no soporta videos.
 </video>
 
 <!-- Contenido -->
