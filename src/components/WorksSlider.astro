@@ -6,7 +6,7 @@ const WORKSTYPES = [
   {
     title: 'Eventos',
     source: '/portadas-trabajos/eventos-portada.webm',
-    style: 'ml-[30%] md:ml-[25%]',
+    style: 'md:ml-[25%]',
     src: '/eventos'
   },
   {
@@ -47,61 +47,102 @@ const WORKSTYPES = [
   {
     title: 'Cortometraje',
     source: '/portadas-trabajos/cortometraje-portada.webm',
-    style: 'mr-[15%] md:mr-[25%]',
+    style: 'md:mr-[25%]',
     src: '/cortometraje'
   }
 ]
 ---
 
-<div class='w-full h-full'>
+<div class='relative w-full h-full'>
   <ul
     id='scroll-container'
-    style='scroll-behavior: smooth;  overflow-scrolling: touch;  -webkit-overflow-scrolling: touch;'
-    class='list-none flex w-full h-full overflow-x-hidden whitespace-nowrap gap-24'>
+    class='list-none flex w-full h-full overflow-x-scroll md:overflow-x-hidden snap-x snap-mandatory md:snap-none whitespace-nowrap gap-6 md:gap-24'>
     {
       WORKSTYPES.map((work) => (
         <li
-          class={`${work.style || 'w-auto'} h-screen flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl`}>
+          class={`snap-center w-[88vw] md:w-auto ${work.style || ''} h-screen flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl`}>
           <WorkItem {...work} />
         </li>
       ))
     }
   </ul>
+
+  <!-- Dots indicator: solo mobile -->
+  <div id='slider-dots' class='md:hidden flex justify-center items-center gap-2 absolute bottom-6 left-0 right-0'>
+    {
+      WORKSTYPES.map((_, i) => (
+        <button
+          class={`h-[3px] rounded-full transition-all duration-300 ${i === 0 ? 'w-6 bg-white' : 'w-2 bg-white/35'}`}
+          data-index={i}
+        />
+      ))
+    }
+  </div>
 </div>
 
+<style>
+  /* Oculta scrollbar en todos los navegadores */
+  #scroll-container {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  #scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
 <script>
-  const scrollContainer = document.querySelector('#scroll-container')
-  const scrollSpeed = 7 // Ajusta este valor para aumentar o reducir la velocidad
+  const scrollContainer = document.querySelector('#scroll-container') as HTMLElement
+  const dots = document.querySelectorAll<HTMLButtonElement>('#slider-dots button')
 
-  // Desplazamiento para PC
-  scrollContainer.addEventListener('wheel', (event) => {
-    event.preventDefault() // Evita el scroll vertical por defecto
-    scrollContainer.scrollLeft += event.deltaY * scrollSpeed // Ajusta la velocidad
+  // ── Dots: actualiza el activo al hacer scroll ───────────────────────────────
+  const updateDots = () => {
+    const itemWidth = scrollContainer.clientWidth * 0.88
+    const index = Math.round(scrollContainer.scrollLeft / (itemWidth + 24)) // 24px = gap-6
+    dots.forEach((dot, i) => {
+      const isActive = i === index
+      dot.classList.toggle('w-6', isActive)
+      dot.classList.toggle('bg-white', isActive)
+      dot.classList.toggle('w-2', !isActive)
+      dot.classList.toggle('bg-white/35', !isActive)
+    })
+  }
+
+  scrollContainer.addEventListener('scroll', updateDots, { passive: true })
+
+  // ── Dots: click para navegar ────────────────────────────────────────────────
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const itemWidth = scrollContainer.clientWidth * 0.88
+      scrollContainer.scrollTo({ left: (itemWidth + 24) * i, behavior: 'smooth' })
+    })
   })
 
-  // Variables para manejo de desplazamiento táctil
-  let isTouching = false
-  let touchStartX = 0
-  let scrollStartX = 0
+  // ── Rueda del ratón + trackpad (solo desktop) ───────────────────────────────
+  scrollContainer.addEventListener(
+    'wheel',
+    (event) => {
+      if (window.innerWidth < 768) return
+      event.preventDefault()
 
-  // Detectar el inicio del toque
-  scrollContainer.addEventListener('touchstart', (event) => {
-    isTouching = true
-    touchStartX = event.touches[0].clientX // Posición inicial del toque
-    scrollStartX = scrollContainer.scrollLeft // Posición inicial del scroll
-  })
+      // Gesto horizontal de trackpad → usar directamente
+      if (Math.abs(event.deltaX) > Math.abs(event.deltaY)) {
+        scrollContainer.scrollLeft += event.deltaX
+        return
+      }
 
-  // Detectar el movimiento del toque
-  scrollContainer.addEventListener('touchmove', (event) => {
-    if (!isTouching) return
+      let delta = event.deltaY
 
-    const touchX = event.touches[0].clientX
-    const deltaX = touchStartX - touchX // Diferencia entre la posición inicial y actual del toque
-    scrollContainer.scrollLeft = scrollStartX + deltaX // Actualizar el scroll
-  })
+      if (event.deltaMode === 1) {
+        delta *= 40
+      } else if (event.deltaMode === 2) {
+        delta *= window.innerHeight
+      }
 
-  // Detectar el fin del toque
-  scrollContainer.addEventListener('touchend', () => {
-    isTouching = false
-  })
+      // Trackpad (delta pequeño) → sin multiplicador; rueda de ratón → ×3
+      const isMouseWheel = Math.abs(delta) > 50
+      scrollContainer.scrollLeft += isMouseWheel ? delta * 3 : delta
+    },
+    { passive: false }
+  )
 </script>
