@@ -53,14 +53,14 @@ const WORKSTYPES = [
 ]
 ---
 
-<div class='relative w-full h-full'>
+<div class='relative w-full h-dvh'>
   <ul
     id='scroll-container'
     class='list-none flex w-full h-full overflow-x-scroll md:overflow-x-hidden snap-x snap-mandatory md:snap-none whitespace-nowrap gap-6 md:gap-24'>
     {
       WORKSTYPES.map((work) => (
         <li
-          class={`snap-center w-[88vw] md:w-auto ${work.style || ''} h-screen flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl`}>
+          class={`snap-center w-[88vw] md:w-auto ${work.style || ''} h-dvh flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl`}>
           <WorkItem {...work} />
         </li>
       ))
@@ -68,7 +68,9 @@ const WORKSTYPES = [
   </ul>
 
   <!-- Dots indicator: solo mobile -->
-  <div id='slider-dots' class='md:hidden flex justify-center items-center gap-2 absolute bottom-6 left-0 right-0'>
+  <div
+    id='slider-dots'
+    class='md:hidden flex justify-center items-center gap-2 absolute bottom-6 left-0 right-0'>
     {
       WORKSTYPES.map((_, i) => (
         <button
@@ -92,8 +94,12 @@ const WORKSTYPES = [
 </style>
 
 <script>
-  const scrollContainer = document.querySelector('#scroll-container') as HTMLElement
-  const dots = document.querySelectorAll<HTMLButtonElement>('#slider-dots button')
+  const scrollContainer = document.querySelector(
+    '#scroll-container'
+  ) as HTMLElement
+  const dots = document.querySelectorAll<HTMLButtonElement>(
+    '#slider-dots button'
+  )
 
   // ── Dots: actualiza el activo al hacer scroll ───────────────────────────────
   const updateDots = () => {
@@ -114,7 +120,10 @@ const WORKSTYPES = [
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
       const itemWidth = scrollContainer.clientWidth * 0.88
-      scrollContainer.scrollTo({ left: (itemWidth + 24) * i, behavior: 'smooth' })
+      scrollContainer.scrollTo({
+        left: (itemWidth + 24) * i,
+        behavior: 'smooth'
+      })
     })
   })
 
