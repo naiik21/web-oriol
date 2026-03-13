@@ -7,22 +7,22 @@ interface Props {
 const { video1, video2, video3 } = Astro.props
 ---
 
-<div class='flex flex-col justify-center gap-8 md:flex-row-reverse'>
+<div class='flex flex-col justify-center gap-8'>
   <iframe
-    class='animate-on-scroll w-full aspect-square'
+    class='animate-on-scroll w-full aspect-square h-auto md:h-[640px]'
     src={video1 + 'preview'}
     allow='autoplay'
     allowfullscreen></iframe>
 
-  <div class='w-full flex flex-col gap-8'>
+  <div class='w-full flex flex-col gap-8 md:flex-row'>
     <iframe
-      class='animate-on-scroll w-full aspect-[2/1]'
+      class='animate-on-scroll w-full md:w-[calc(50%_-_1rem)] aspect-[2/1]'
       src={video2 + 'preview'}
       allow='autoplay'
       allowfullscreen></iframe>
 
     <iframe
-      class='animate-on-scroll w-full aspect-[2/1]'
+      class='animate-on-scroll w-full md:w-[calc(50%_-_1rem)] aspect-[2/1]'
       src={video3 + 'preview'}
       allow='autoplay'
       allowfullscreen></iframe>

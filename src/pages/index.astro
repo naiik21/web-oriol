@@ -4,6 +4,7 @@ import SectionContainer from '../components/SectionContainer.astro'
 import ScrollEffect from '../components/ScrollEffect.astro'
 import ScrollEffectInvertido from '../components/ScrollEffectInvertido.astro'
 import MarqueeContainer from '../components/MarqueeContainer.astro'
+import HorizontalGif from '../components/Works/HorizontalGif.astro'
 ---
 
 <Layout title='Oriol Ortega | Home'>
@@ -62,7 +63,17 @@ import MarqueeContainer from '../components/MarqueeContainer.astro'
       class='bg-[#d9d9d9]'
     />
 
+    <HorizontalGif
+      video='./gifs-trabajos/gif-eventos-muska-horizontal.webm'
+      className='pb-10 md:pb-32 bg-[#0D0D0D]'
+    />
+
     <MarqueeContainer />
+
+    <HorizontalGif
+      video='./gifs-trabajos/gif-eventos-daurada-horizontal.webm'
+      className='pt-10 md:pt-32 bg-[#0D0D0D]'
+    />
 
     <ScrollEffect
       text='¿Listo para crear algo increíble?'
