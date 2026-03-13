@@ -2,6 +2,11 @@
 import WorkItem from './WorkItem.astro'
 const currentPath = Astro.url.pathname
 
+interface Props {
+  className: string
+}
+const { className } = Astro.props
+
 const WORKSTYPES = [
   {
     title: 'Eventos',
@@ -53,14 +58,14 @@ const WORKSTYPES = [
 ]
 ---
 
-<div class='relative w-full h-dvh'>
+<div class={`relative w-full h-dvh ${className}`}>
   <ul
     id='scroll-container'
     class='list-none flex w-full h-full overflow-x-scroll md:overflow-x-hidden snap-x snap-mandatory md:snap-none whitespace-nowrap gap-6 md:gap-24'>
     {
       WORKSTYPES.map((work) => (
         <li
-          class={`snap-center w-[88vw] md:w-auto ${work.style || ''} h-dvh flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl`}>
+          class={`snap-center w-[88vw] md:w-auto ${work.style || ''} h-dvh flex flex-none items-center justify-center text-2xl xl:text-9xl lg:text-7xl md:text-5xl sm:text-4xl ${className}`}>
           <WorkItem {...work} />
         </li>
       ))
@@ -104,7 +109,7 @@ const WORKSTYPES = [
   // ── Dots: actualiza el activo al hacer scroll ───────────────────────────────
   const updateDots = () => {
     const itemWidth = scrollContainer.clientWidth * 0.88
-    const index = Math.round(scrollContainer.scrollLeft / (itemWidth + 24)) // 24px = gap-6
+    const index = Math.round(scrollContainer.scrollLeft / (itemWidth + 24))
     dots.forEach((dot, i) => {
       const isActive = i === index
       dot.classList.toggle('w-6', isActive)
@@ -126,6 +131,37 @@ const WORKSTYPES = [
       })
     })
   })
+
+  // ── Video autoplay en mobile: se reproduce solo el slide activo ────────────
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    const slides = Array.from(scrollContainer.querySelectorAll('li'))
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const videoDiv = entry.target.querySelector(
+            '[id="video-subcat"]'
+          ) as HTMLElement | null
+          const video = entry.target.querySelector(
+            'video'
+          ) as HTMLVideoElement | null
+          if (!videoDiv || !video) return
+
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+            videoDiv.classList.remove('hidden')
+            video.play().catch(() => {})
+          } else {
+            videoDiv.classList.add('hidden')
+            video.pause()
+            video.currentTime = 0
+          }
+        })
+      },
+      { root: scrollContainer, threshold: 0.7 }
+    )
+
+    slides.forEach((slide) => observer.observe(slide))
+  }
 
   // ── Rueda del ratón + trackpad (solo desktop) ───────────────────────────────
   scrollContainer.addEventListener(

@@ -5,6 +5,7 @@ import ScrollEffect from '../components/ScrollEffect.astro'
 import ScrollEffectInvertido from '../components/ScrollEffectInvertido.astro'
 import MarqueeContainer from '../components/MarqueeContainer.astro'
 import HorizontalGif from '../components/Works/HorizontalGif.astro'
+import WorksSlider from '../components/WorksSlider.astro'
 ---
 
 <Layout title='Oriol Ortega | Home'>
@@ -72,8 +73,12 @@ import HorizontalGif from '../components/Works/HorizontalGif.astro'
 
     <HorizontalGif
       video='./gifs-trabajos/gif-eventos-daurada-horizontal.webm'
-      className='pt-10 md:pt-32 bg-[#0D0D0D]'
+      className='pt-10 md:pt-32 bg-[#0D0D0D] pb-16 md:pb-32'
     />
+
+    <div class='bg-[#0D0D0D] h-[50dvh] md:h-dvh'>
+      <WorksSlider className='h-[50dvh] md:h-dvh' />
+    </div>
 
     <ScrollEffect
       text='¿Listo para crear algo increíble?'
@@ -81,6 +86,12 @@ import HorizontalGif from '../components/Works/HorizontalGif.astro'
     />
   </main>
 </Layout>
+
+<style>
+  #scroll-container {
+    height: 50dvh;
+  }
+</style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {

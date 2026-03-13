@@ -1,6 +1,7 @@
 ---
 import Analytics from '@vercel/analytics/astro'
 import SpeedInsights from '@vercel/speed-insights/astro'
+import WhatsApp from 'astro-whatsapp'
 
 interface Props {
   title: string
@@ -39,7 +40,7 @@ const { pathname } = Astro.url
     {
       pathname === '/' ? (
         <HeaderHome />
-      ) : pathname === '/aboutMe' || '/contact' ? null : (
+      ) : pathname === '/aboutMe' || pathname === '/contact' ? null : (
         <Header />
       )
     }
@@ -51,6 +52,8 @@ const { pathname } = Astro.url
         <Footer />
       )
     }
+
+    <WhatsApp useApi={true} mobile={606954802} classNames='whatsapp' />
   </body>
 </html>
 <style is:global>
@@ -97,6 +100,20 @@ const { pathname } = Astro.url
   .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+  .whatsapp {
+    background-color: #0d0d0d;
+    padding: 7px;
+    width: 45px;
+    height: 45px;
+    z-index: 999999;
+  }
+
+  @media (min-width: 768px) {
+    .whatsapp {
+      bottom: 1rem;
+      right: 1rem;
+    }
   }
 </style>
 
