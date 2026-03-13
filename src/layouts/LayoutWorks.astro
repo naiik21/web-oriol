@@ -4,6 +4,7 @@ interface Props {
 }
 
 const { title } = Astro.props
+import WhatsApp from 'astro-whatsapp'
 ---
 
 <!doctype html>
@@ -27,6 +28,7 @@ const { title } = Astro.props
   </head>
   <body>
     <slot />
+    <WhatsApp useApi={true} mobile={606954802} classNames='whatsapp' />
   </body>
 </html>
 <style is:global>
@@ -73,6 +75,21 @@ const { title } = Astro.props
   .animate-on-scroll.visible {
     opacity: 1;
     transform: translateY(0);
+  }
+
+  .whatsapp {
+    background-color: #0d0d0d;
+    padding: 7px;
+    width: 45px;
+    height: 45px;
+    z-index: 999999;
+  }
+
+  @media (min-width: 768px) {
+    .whatsapp {
+      bottom: 1rem;
+      right: 1rem;
+    }
   }
 </style>
 
